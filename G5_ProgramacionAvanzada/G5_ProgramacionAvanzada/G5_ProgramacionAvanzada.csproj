@@ -1,0 +1,587 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{47902F9B-555B-4A3F-90A8-950B86D397AF}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>G5_ProgramacionAvanzada</RootNamespace>
+    <AssemblyName>G5_ProgramacionAvanzada</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44327</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.2.0.1\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.9\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.9\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Usuario.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-grid.rtl.css" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\bootstrap-utilities.css" />
+    <Content Include="Content\bootstrap-utilities.min.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.rtl.css" />
+    <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.esm.js" />
+    <Content Include="Scripts\bootstrap.esm.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Templates\css\ajax-loader.html" />
+    <Content Include="Templates\css\animate.min.css" />
+    <Content Include="Templates\css\bootstrap.min.css" />
+    <Content Include="Templates\css\fontawesome.all.min.css" />
+    <Content Include="Templates\css\fonts\slick-2.html" />
+    <Content Include="Templates\css\fonts\slick-3.html" />
+    <Content Include="Templates\css\fonts\slick-4.html" />
+    <Content Include="Templates\css\fonts\slick.html" />
+    <Content Include="Templates\css\fonts\slickd41d.html" />
+    <Content Include="Templates\css\meanmenu.css" />
+    <Content Include="Templates\css\navber.css" />
+    <Content Include="Templates\css\nouislider.css" />
+    <Content Include="Templates\css\owl.carousel.min.css" />
+    <Content Include="Templates\css\owl.theme.default.min.css" />
+    <Content Include="Templates\css\owl.video.play.html" />
+    <Content Include="Templates\css\popup.css" />
+    <Content Include="Templates\css\responsive.css" />
+    <Content Include="Templates\css\slick-theme.css" />
+    <Content Include="Templates\css\slick-theme.min.css" />
+    <Content Include="Templates\css\slick.min.css" />
+    <Content Include="Templates\css\style.css" />
+    <Content Include="Templates\img\apartment\apartment-1.png" />
+    <Content Include="Templates\img\apartment\apartment-2.png" />
+    <Content Include="Templates\img\apartment\apartment-3.png" />
+    <Content Include="Templates\img\apartment\apartment-4.png" />
+    <Content Include="Templates\img\apartment\apartment-5.png" />
+    <Content Include="Templates\img\apartment\apartment-6.png" />
+    <Content Include="Templates\img\apartment\apartment-list-1.png" />
+    <Content Include="Templates\img\apartment\apartment-list-2.png" />
+    <Content Include="Templates\img\apartment\apartment-list-3.png" />
+    <Content Include="Templates\img\apartment\apartment-list-4.png" />
+    <Content Include="Templates\img\apartment\apartment-list-5.png" />
+    <Content Include="Templates\img\banner\banner-4.png" />
+    <Content Include="Templates\img\banner\banner-three.png" />
+    <Content Include="Templates\img\banner\banner-two-bg-1.png" />
+    <Content Include="Templates\img\banner\banner-two-bg-2.png" />
+    <Content Include="Templates\img\banner\banner-two-bg-3.png" />
+    <Content Include="Templates\img\banner\bg.png" />
+    <Content Include="Templates\img\banner\client-bg.png" />
+    <Content Include="Templates\img\banner\common-banner.png" />
+    <Content Include="Templates\img\banner\edu.png" />
+    <Content Include="Templates\img\banner\usa.png" />
+    <Content Include="Templates\img\bus\bus-1.png" />
+    <Content Include="Templates\img\bus\bus-2.png" />
+    <Content Include="Templates\img\bus\bus-3.png" />
+    <Content Include="Templates\img\bus\bus-4.png" />
+    <Content Include="Templates\img\bus\bus-5.png" />
+    <Content Include="Templates\img\common\abour_right.png" />
+    <Content Include="Templates\img\common\about-three.png" />
+    <Content Include="Templates\img\common\about_two.png" />
+    <Content Include="Templates\img\common\bg.png" />
+    <Content Include="Templates\img\common\big_banner.png" />
+    <Content Include="Templates\img\common\biman_bangla.png" />
+    <Content Include="Templates\img\common\bus_seat.png" />
+    <Content Include="Templates\img\common\cards.png" />
+    <Content Include="Templates\img\common\counter_bg.png" />
+    <Content Include="Templates\img\common\dashboard-user.png" />
+    <Content Include="Templates\img\common\email.png" />
+    <Content Include="Templates\img\common\error.png" />
+    <Content Include="Templates\img\common\how-1.png" />
+    <Content Include="Templates\img\common\how-2.png" />
+    <Content Include="Templates\img\common\how-3.png" />
+    <Content Include="Templates\img\common\offer_banner.png" />
+    <Content Include="Templates\img\common\quote.png" />
+    <Content Include="Templates\img\common\side_img.png" />
+    <Content Include="Templates\img\common\small_banner.png" />
+    <Content Include="Templates\img\common\test-bg.png" />
+    <Content Include="Templates\img\common\testimonial.png" />
+    <Content Include="Templates\img\common\vendor.png" />
+    <Content Include="Templates\img\common\verified.png" />
+    <Content Include="Templates\img\common\video-two.png" />
+    <Content Include="Templates\img\common\video.png" />
+    <Content Include="Templates\img\common\video_bg.png" />
+    <Content Include="Templates\img\common\visa_info-1.png" />
+    <Content Include="Templates\img\common\visa_info-2.png" />
+    <Content Include="Templates\img\cruise\cruise-1.png" />
+    <Content Include="Templates\img\cruise\cruise-2.png" />
+    <Content Include="Templates\img\cruise\cruise-3.png" />
+    <Content Include="Templates\img\cruise\cruise-4.png" />
+    <Content Include="Templates\img\cruise\cruise-5.png" />
+    <Content Include="Templates\img\cruise\cruise-slider-big.png" />
+    <Content Include="Templates\img\cruise\cruise-slider-sm-1.png" />
+    <Content Include="Templates\img\cruise\cruise-slider-sm-2.png" />
+    <Content Include="Templates\img\cruise\cruise-slider-sm-3.png" />
+    <Content Include="Templates\img\cruise\cruise-slider-sm-4.png" />
+    <Content Include="Templates\img\cruise\cruise-slider-sm-5.png" />
+    <Content Include="Templates\img\cruise\cruise-slider-sm-6.png" />
+    <Content Include="Templates\img\destination\big-img.png" />
+    <Content Include="Templates\img\destination\destination-small1.png" />
+    <Content Include="Templates\img\destination\destination-small2.png" />
+    <Content Include="Templates\img\destination\destination-small3.png" />
+    <Content Include="Templates\img\destination\destination-small4.png" />
+    <Content Include="Templates\img\destination\destination-small5.png" />
+    <Content Include="Templates\img\destination\destination-small6.png" />
+    <Content Include="Templates\img\destination\destination1.png" />
+    <Content Include="Templates\img\destination\destination2.png" />
+    <Content Include="Templates\img\destination\destination3.png" />
+    <Content Include="Templates\img\destination\destination4.png" />
+    <Content Include="Templates\img\destination\destination5.png" />
+    <Content Include="Templates\img\destination\destination6.png" />
+    <Content Include="Templates\img\destination\destination7.png" />
+    <Content Include="Templates\img\destination\destination8.png" />
+    <Content Include="Templates\img\destination\home-two-des-1.png" />
+    <Content Include="Templates\img\destination\home-two-des-2.png" />
+    <Content Include="Templates\img\destination\home-two-des-3.png" />
+    <Content Include="Templates\img\destination\home-two-des-4.png" />
+    <Content Include="Templates\img\destination\home-two-des-5.png" />
+    <Content Include="Templates\img\destination\home-two-des-6.png" />
+    <Content Include="Templates\img\destination\main-page1.png" />
+    <Content Include="Templates\img\destination\main-page2.png" />
+    <Content Include="Templates\img\destination\main-page3.png" />
+    <Content Include="Templates\img\destination\main-page4.png" />
+    <Content Include="Templates\img\destination\main-page5.png" />
+    <Content Include="Templates\img\destination\main-page6.png" />
+    <Content Include="Templates\img\favicon.png" />
+    <Content Include="Templates\img\holiday-img\holiday-1.png" />
+    <Content Include="Templates\img\holiday-img\holiday-2.png" />
+    <Content Include="Templates\img\holiday-img\holiday-3.png" />
+    <Content Include="Templates\img\holiday-img\holiday-4.png" />
+    <Content Include="Templates\img\holiday-img\holiday-5.png" />
+    <Content Include="Templates\img\holiday-img\holiday-6.png" />
+    <Content Include="Templates\img\hotel\hotel-big-1.png" />
+    <Content Include="Templates\img\hotel\hotel-list-1.png" />
+    <Content Include="Templates\img\hotel\hotel-list-2.png" />
+    <Content Include="Templates\img\hotel\hotel-list-3.png" />
+    <Content Include="Templates\img\hotel\hotel-list-4.png" />
+    <Content Include="Templates\img\hotel\hotel-list-5.png" />
+    <Content Include="Templates\img\hotel\room-1.png" />
+    <Content Include="Templates\img\hotel\room-2.png" />
+    <Content Include="Templates\img\hotel\room-3.png" />
+    <Content Include="Templates\img\hotel\small-1.png" />
+    <Content Include="Templates\img\hotel\small-2.png" />
+    <Content Include="Templates\img\hotel\small-3.png" />
+    <Content Include="Templates\img\hotel\small-4.png" />
+    <Content Include="Templates\img\hotel\small-5.png" />
+    <Content Include="Templates\img\hotel\small-6.png" />
+    <Content Include="Templates\img\icon\about-1.png" />
+    <Content Include="Templates\img\icon\about-2.png" />
+    <Content Include="Templates\img\icon\about-3.png" />
+    <Content Include="Templates\img\icon\ac.png" />
+    <Content Include="Templates\img\icon\bag.png" />
+    <Content Include="Templates\img\icon\bank.png" />
+    <Content Include="Templates\img\icon\beach.png" />
+    <Content Include="Templates\img\icon\bg.png" />
+    <Content Include="Templates\img\icon\calander.png" />
+    <Content Include="Templates\img\icon\call.png" />
+    <Content Include="Templates\img\icon\check-black.png" />
+    <Content Include="Templates\img\icon\customer.png" />
+    <Content Include="Templates\img\icon\dolor.png" />
+    <Content Include="Templates\img\icon\exp-1.png" />
+    <Content Include="Templates\img\icon\exp-2.png" />
+    <Content Include="Templates\img\icon\exp-3.png" />
+    <Content Include="Templates\img\icon\exp-sm-1.png" />
+    <Content Include="Templates\img\icon\exp-sm-2.png" />
+    <Content Include="Templates\img\icon\exp-sm-3.png" />
+    <Content Include="Templates\img\icon\facebook.png" />
+    <Content Include="Templates\img\icon\family.png" />
+    <Content Include="Templates\img\icon\forest.png" />
+    <Content Include="Templates\img\icon\google.png" />
+    <Content Include="Templates\img\icon\gym.png" />
+    <Content Include="Templates\img\icon\location.png" />
+    <Content Include="Templates\img\icon\offer-1.png" />
+    <Content Include="Templates\img\icon\offer-2.png" />
+    <Content Include="Templates\img\icon\offer-3.png" />
+    <Content Include="Templates\img\icon\offer-4.png" />
+    <Content Include="Templates\img\icon\pdf.png" />
+    <Content Include="Templates\img\icon\persentis.png" />
+    <Content Include="Templates\img\icon\plan-md.png" />
+    <Content Include="Templates\img\icon\plan.png" />
+    <Content Include="Templates\img\icon\plane-right-blue.png" />
+    <Content Include="Templates\img\icon\play.png" />
+    <Content Include="Templates\img\icon\price.png" />
+    <Content Include="Templates\img\icon\quote.png" />
+    <Content Include="Templates\img\icon\right.png" />
+    <Content Include="Templates\img\icon\right_arrow.png" />
+    <Content Include="Templates\img\icon\search.png" />
+    <Content Include="Templates\img\icon\seat-1.png" />
+    <Content Include="Templates\img\icon\seat-2.png" />
+    <Content Include="Templates\img\icon\seat-3.png" />
+    <Content Include="Templates\img\icon\service-1.png" />
+    <Content Include="Templates\img\icon\service-2.png" />
+    <Content Include="Templates\img\icon\service-3.png" />
+    <Content Include="Templates\img\icon\service-4.png" />
+    <Content Include="Templates\img\icon\service-5.png" />
+    <Content Include="Templates\img\icon\service-6.png" />
+    <Content Include="Templates\img\icon\sm-call.png" />
+    <Content Include="Templates\img\icon\star.png" />
+    <Content Include="Templates\img\icon\suport.png" />
+    <Content Include="Templates\img\icon\support.png" />
+    <Content Include="Templates\img\icon\test.png" />
+    <Content Include="Templates\img\icon\tour.png" />
+    <Content Include="Templates\img\icon\tv.png" />
+    <Content Include="Templates\img\icon\twitter.png" />
+    <Content Include="Templates\img\icon\user.png" />
+    <Content Include="Templates\img\icon\walte.png" />
+    <Content Include="Templates\img\icon\wifi.png" />
+    <Content Include="Templates\img\icon\world-map.png" />
+    <Content Include="Templates\img\icon\world.png" />
+    <Content Include="Templates\img\imagination\imagination1.png" />
+    <Content Include="Templates\img\imagination\imagination2.png" />
+    <Content Include="Templates\img\imagination\imagination3.png" />
+    <Content Include="Templates\img\logo.png" />
+    <Content Include="Templates\img\logo_black.png" />
+    <Content Include="Templates\img\news\author-1.png" />
+    <Content Include="Templates\img\news\author-2.png" />
+    <Content Include="Templates\img\news\author-3.png" />
+    <Content Include="Templates\img\news\author-5.png" />
+    <Content Include="Templates\img\news\author-6.png" />
+    <Content Include="Templates\img\news\comment.png" />
+    <Content Include="Templates\img\news\new-big.png" />
+    <Content Include="Templates\img\news\news-1.png" />
+    <Content Include="Templates\img\news\news-2.png" />
+    <Content Include="Templates\img\news\news-3.png" />
+    <Content Include="Templates\img\news\news-4.png" />
+    <Content Include="Templates\img\news\news-5.png" />
+    <Content Include="Templates\img\news\news-6.png" />
+    <Content Include="Templates\img\news\news-big.png" />
+    <Content Include="Templates\img\news\news-details.png" />
+    <Content Include="Templates\img\news\news-sidebar.png" />
+    <Content Include="Templates\img\news\news-two-1.png" />
+    <Content Include="Templates\img\news\news-two-2.png" />
+    <Content Include="Templates\img\news\news-two-3.png" />
+    <Content Include="Templates\img\news\news-two-4.png" />
+    <Content Include="Templates\img\news\news_details_left.png" />
+    <Content Include="Templates\img\news\news_details_right.png" />
+    <Content Include="Templates\img\news\recent-1.png" />
+    <Content Include="Templates\img\news\recent-2.png" />
+    <Content Include="Templates\img\news\recent-3.png" />
+    <Content Include="Templates\img\news\recent-4.png" />
+    <Content Include="Templates\img\news\small1.png" />
+    <Content Include="Templates\img\news\small2.png" />
+    <Content Include="Templates\img\news\small3.png" />
+    <Content Include="Templates\img\news\small4.png" />
+    <Content Include="Templates\img\offer\offer1.png" />
+    <Content Include="Templates\img\offer\offer2.png" />
+    <Content Include="Templates\img\offer\offer3.png" />
+    <Content Include="Templates\img\partner\1.png" />
+    <Content Include="Templates\img\partner\2.png" />
+    <Content Include="Templates\img\partner\3.png" />
+    <Content Include="Templates\img\partner\4.png" />
+    <Content Include="Templates\img\partner\5.png" />
+    <Content Include="Templates\img\partner\6.png" />
+    <Content Include="Templates\img\partner\7.png" />
+    <Content Include="Templates\img\partner\8.png" />
+    <Content Include="Templates\img\review\review-small1.png" />
+    <Content Include="Templates\img\review\review-small2.png" />
+    <Content Include="Templates\img\review\review-small3.png" />
+    <Content Include="Templates\img\review\review-small4.png" />
+    <Content Include="Templates\img\review\review-small5.png" />
+    <Content Include="Templates\img\review\review1.png" />
+    <Content Include="Templates\img\review\review2.png" />
+    <Content Include="Templates\img\review\review3.png" />
+    <Content Include="Templates\img\review\review4.png" />
+    <Content Include="Templates\img\review\review5.png" />
+    <Content Include="Templates\img\review\review6.png" />
+    <Content Include="Templates\img\review\review7.png" />
+    <Content Include="Templates\img\tab-img\hotel1.png" />
+    <Content Include="Templates\img\tab-img\hotel2.png" />
+    <Content Include="Templates\img\tab-img\hotel3.png" />
+    <Content Include="Templates\img\tab-img\hotel4.png" />
+    <Content Include="Templates\img\tab-img\hotel5.png" />
+    <Content Include="Templates\img\tab-img\hotel6.png" />
+    <Content Include="Templates\img\tab-img\hotel7.png" />
+    <Content Include="Templates\img\tab-img\hotel8.png" />
+    <Content Include="Templates\img\tour-guides\guide-1.png" />
+    <Content Include="Templates\img\tour-guides\guide-10.png" />
+    <Content Include="Templates\img\tour-guides\guide-11.png" />
+    <Content Include="Templates\img\tour-guides\guide-12.png" />
+    <Content Include="Templates\img\tour-guides\guide-2.png" />
+    <Content Include="Templates\img\tour-guides\guide-3.png" />
+    <Content Include="Templates\img\tour-guides\guide-4.png" />
+    <Content Include="Templates\img\tour-guides\guide-5.png" />
+    <Content Include="Templates\img\tour-guides\guide-6.png" />
+    <Content Include="Templates\img\tour-guides\guide-7.png" />
+    <Content Include="Templates\img\tour-guides\guide-8.png" />
+    <Content Include="Templates\img\tour-guides\guide-9.png" />
+    <Content Include="Templates\img\tour\big-img.png" />
+    <Content Include="Templates\img\tour\big-img2.png" />
+    <Content Include="Templates\img\tour\big-img3.png" />
+    <Content Include="Templates\img\tour\big-img4.png" />
+    <Content Include="Templates\img\tour\big-img5.png" />
+    <Content Include="Templates\img\tour\big-img6.png" />
+    <Content Include="Templates\img\tour\big-img7.png" />
+    <Content Include="Templates\img\tour\popular-1.png" />
+    <Content Include="Templates\img\tour\popular-2.png" />
+    <Content Include="Templates\img\tour\popular-3.png" />
+    <Content Include="Templates\img\tour\popular-4.png" />
+    <Content Include="Templates\img\tour\small1-img.png" />
+    <Content Include="Templates\img\tour\small2-img.png" />
+    <Content Include="Templates\img\tour\small3-img.png" />
+    <Content Include="Templates\img\tour\small4-img.png" />
+    <Content Include="Templates\img\tour\small5-img.png" />
+    <Content Include="Templates\img\tour\small6-img.png" />
+    <Content Include="Templates\img\tour\small7-img.png" />
+    <Content Include="Templates\img\tour\tour-list-1.png" />
+    <Content Include="Templates\img\tour\tour-list-2.png" />
+    <Content Include="Templates\img\tour\tour-list-3.png" />
+    <Content Include="Templates\img\tour\tour-list-4.png" />
+    <Content Include="Templates\img\tour\tour-list-5.png" />
+    <Content Include="Templates\js\add-form.js" />
+    <Content Include="Templates\js\bootstrap.bundle.js" />
+    <Content Include="Templates\js\custom.js" />
+    <Content Include="Templates\js\form-dropdown.js" />
+    <Content Include="Templates\js\jquery-3.6.0.min.js" />
+    <Content Include="Templates\js\jquery.counterup.min.js" />
+    <Content Include="Templates\js\jquery.magnific-popup.min.js" />
+    <Content Include="Templates\js\jquery.meanmenu.js" />
+    <Content Include="Templates\js\jquery.min.js" />
+    <Content Include="Templates\js\nouislider.min.js" />
+    <Content Include="Templates\js\owl.carousel.min.js" />
+    <Content Include="Templates\js\payment-form.js" />
+    <Content Include="Templates\js\slick-slider.js" />
+    <Content Include="Templates\js\slick.min.js" />
+    <Content Include="Templates\js\video.js" />
+    <Content Include="Templates\js\waypoints.min.js" />
+    <Content Include="Templates\js\wNumb.js" />
+    <Content Include="Templates\js\wow.min.js" />
+    <Content Include="Templates\webfonts\fa-brands-400.svg" />
+    <Content Include="Templates\webfonts\fa-regular-400.svg" />
+    <Content Include="Templates\webfonts\fa-solid-900.svg" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Templates\webfonts\fa-brands-400.eot" />
+    <Content Include="Templates\webfonts\fa-brands-400.ttf" />
+    <Content Include="Templates\webfonts\fa-brands-400.woff" />
+    <Content Include="Templates\webfonts\fa-brands-400.woff2" />
+    <Content Include="Templates\webfonts\fa-brands-400d41dd41d.eot" />
+    <Content Include="Templates\webfonts\fa-regular-400.eot" />
+    <Content Include="Templates\webfonts\fa-regular-400.ttf" />
+    <Content Include="Templates\webfonts\fa-regular-400.woff" />
+    <Content Include="Templates\webfonts\fa-regular-400.woff2" />
+    <Content Include="Templates\webfonts\fa-regular-400d41dd41d.eot" />
+    <Content Include="Templates\webfonts\fa-solid-900.eot" />
+    <Content Include="Templates\webfonts\fa-solid-900.ttf" />
+    <Content Include="Templates\webfonts\fa-solid-900.woff" />
+    <Content Include="Templates\webfonts\fa-solid-900.woff2" />
+    <Content Include="Templates\webfonts\fa-solid-900d41dd41d.eot" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Login\IniciarSesion.cshtml" />
+    <Content Include="Views\Shared\_Layout_Login.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\bootstrap.rtl.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\bootstrap.esm.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50227</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44327/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
