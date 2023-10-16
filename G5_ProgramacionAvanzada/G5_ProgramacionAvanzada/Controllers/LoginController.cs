@@ -11,16 +11,21 @@ namespace G5_ProgramacionAvanzada.Controllers
     {
         Usuario claseUsuario = new Usuario();
 
-        public ActionResult IniciarSesion()
-        { 
-            return View();
-        }
-
         public ActionResult Index()
         {
             return View();
         }
-
-
+        public ActionResult IniciarSesion()
+        {
+            return View();
+        }
+        public ActionResult RegistrarCuenta()
+        {
+            return View();
+        }
+        public ActionResult RecuperarCuenta()
+        {
+            return View();
+        }
     }
 }

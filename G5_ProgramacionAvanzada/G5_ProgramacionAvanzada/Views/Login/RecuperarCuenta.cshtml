@@ -1,5 +1,11 @@
 ﻿
 @{
+    ViewBag.Title = "RecuperarCuenta";
+    Layout = "~/Views/Shared/_Layout_Login.cshtml";
+}
+
+
+@{
     ViewBag.Title = "IniciarSesion";
     Layout = "~/Views/Shared/_Layout_Login.cshtml";
 }
@@ -8,7 +14,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="common_bannner_text">
-                    <h2>Login</h2>
+                    <h2>Recuperar Contraseña</h2>
                     <ul>
                         <li><a href="@Url.Action("Index","Login")">Home</a></li>
                         <li><span><i class="fas fa-circle"></i></span> Login</li>
@@ -26,22 +32,19 @@
             <div class="col-lg-8 offset-lg-2">
                 <div class="common_author_boxed">
                     <div class="common_author_heading">
-                        <h3>Inicia Sesión con tu cuenta</h3>
+                        <h3>Recuperar cuenta</h3>
                     </div>
                     <div class="common_author_form">
                         <form action="#" id="main_author_form">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Introduce tu username" />
+                                <input type="text" class="form-control" placeholder="Correo electrónico" />
                             </div>
-                            <div class="form-group">
-                                <input type="password" class="form-control" placeholder="Introduce tu contraseña" />
-                                <a href="@Url.Action("RecuperarCuenta", "Login")">Olvidaste tu contraseña?</a>
-                            </div>
+               
                             <div class="common_form_submit">
-                                <button class="btn btn_theme btn_md">Iniciar Sesion</button>
+                                <button class="btn btn_theme btn_md">Recuperar Acceso</button>
                             </div>
                             <div class="have_acount_area">
-                                <p>No tienes una cuenta? <a href="@Url.Action("RegistrarCuenta","Login")">Registrate</a></p>
+                                <p>Ya tienes una cuenta? <a href="@Url.Action("IniciarSesion","Login")">Iniciar Sesión</a></p>
                             </div>
                         </form>
                     </div>
@@ -50,3 +53,5 @@
         </div>
     </div>
 </section>
+
+
