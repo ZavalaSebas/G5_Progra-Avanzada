@@ -2,3 +2,282 @@
     ViewBag.Title = "Home Page";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+<!-- Banner Area -->
+<section id="home_one_banner">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-12">
+                <div class="banner_one_text">
+                    <h1>Descubramos el mundo juntos</h1>
+                    <h3>Encuentra increibles vuelos, hoteles, tours, carros y promociones</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Form Area -->
+<section id="theme_search_form">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="theme_search_form_area">
+                    <div class="theme_search_form_tabbtn">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="flights-tab" data-bs-toggle="tab"
+                                        data-bs-target="#flights" type="button" role="tab" aria-controls="flights"
+                                        aria-selected="true">
+                                    <i class="fas fa-plane-departure"></i>Vuelos
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="tours-tab" data-bs-toggle="tab" data-bs-target="#tours"
+                                        type="button" role="tab" aria-controls="tours" aria-selected="false">
+                                    <i class="fas fa-globe"></i>Tours
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="hotels-tab" data-bs-toggle="tab"
+                                        data-bs-target="#hotels" type="button" role="tab" aria-controls="hotels"
+                                        aria-selected="false">
+                                    <i class="fas fa-hotel"></i>Hoteles
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="cruise-tab" data-bs-toggle="tab"
+                                        data-bs-target="#cruise" type="button" role="tab" aria-controls="cruise"
+                                        aria-selected="false">
+                                    <i class="fas fa-ship"></i> Crucero
+                                </button>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="flights" role="tabpanel"
+                             aria-labelledby="flights-tab">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="flight_categories_search">
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            <li class="nav-item" role="presentation">
+                                                <button class="nav-link active" id="oneway-tab" data-bs-toggle="tab"
+                                                        data-bs-target="#oneway_flight" type="button" role="tab"
+                                                        aria-controls="oneway_flight" aria-selected="true">
+                                                    Solo Ida
+                                                </button>
+                                            </li>
+                                            <li class="nav-item" role="presentation">
+                                                <button class="nav-link" id="roundtrip-tab" data-bs-toggle="tab"
+                                                        data-bs-target="#roundtrip" type="button" role="tab"
+                                                        aria-controls="roundtrip"
+                                                        aria-selected="false">
+                                                    Ida y Vuelta
+                                                </button>
+                                            </li>
+                                            <li class="nav-item" role="presentation">
+                                                <button class="nav-link" id="multi_city-tab" data-bs-toggle="tab"
+                                                        data-bs-target="#multi_city" type="button" role="tab"
+                                                        aria-controls="multi_city" aria-selected="false">
+                                                    Multi ciudad
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-content" id="myTabContent1">
+                                <div class="tab-pane fade show active" id="oneway_flight" role="tabpanel"
+                                     aria-labelledby="oneway-tab">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="oneway_search_form">
+                                                <form action="#!">
+                                                    <div class="row">
+                                                        <div class="col-lg-3 col-md-6 col-sm-12 col-12">
+                                                            <div class="flight_Search_boxed">
+                                                                <p>Desde</p>
+                                                                <input type="text" value="New York">
+                                                                <span>JFK - John F. Kennedy International...</span>
+                                                                <div class="plan_icon_posation">
+                                                                    <i class="fas fa-plane-departure"></i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-3 col-md-6 col-sm-12 col-12">
+                                                            <div class="flight_Search_boxed">
+                                                                <p>Hacia</p>
+                                                                <input type="text" value="London ">
+                                                                <span>LCY, London city airport </span>
+                                                                <div class="plan_icon_posation">
+                                                                    <i class="fas fa-plane-arrival"></i>
+                                                                </div>
+                                                                <div class="range_plan">
+                                                                    <i class="fas fa-exchange-alt"></i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4  col-md-6 col-sm-12 col-12">
+                                                            <div class="form_search_date">
+                                                                <div class="flight_Search_boxed date_flex_area">
+                                                                    <div class="Journey_date">
+                                                                        <p>Día del viaje</p>
+                                                                        <input type="date" value="2022-05-05">
+                                                                        <span>Jueves</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-2  col-md-6 col-sm-12 col-12">
+                                                            <div class="flight_Search_boxed dropdown_passenger_area">
+                                                                <p>Pasajeros, Clase </p>
+                                                                <div class="dropdown">
+                                                                    <button class="dropdown-toggle final-count"
+                                                                            data-toggle="dropdown" type="button"
+                                                                            id="dropdownMenuButton1"
+                                                                            data-bs-toggle="dropdown"
+                                                                            aria-expanded="false">
+                                                                        0 Pasajeros
+                                                                    </button>
+                                                                    <div class="dropdown-menu dropdown_passenger_info"
+                                                                         aria-labelledby="dropdownMenuButton1">
+                                                                        <div class="traveller-calulate-persons">
+                                                                            <div class="passengers">
+                                                                                <h6>Pasajeros</h6>
+                                                                                <div class="passengers-types">
+                                                                                    <div class="passengers-type">
+                                                                                        <div class="text">
+                                                                                            <span class="count pcount">2</span>
+                                                                                            <div class="type-label">
+                                                                                                <p>Adulto</p>
+                                                                                                <span>12+ años</span>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="button-set">
+                                                                                            <button type="button"
+                                                                                                    class="btn-add">
+                                                                                                <i class="fas fa-plus"></i>
+                                                                                            </button>
+                                                                                            <button type="button"
+                                                                                                    class="btn-subtract">
+                                                                                                <i class="fas fa-minus"></i>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="passengers-type">
+                                                                                        <div class="text">
+                                                                                            <span class="count ccount">0</span>
+                                                                                            <div class="type-label">
+                                                                                                <p class="fz14 mb-xs-0"> Niños</p>
+                                                                                                <span> -Menos de  12 años   </span>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="button-set">
+                                                                                            <button type="button"
+                                                                                                    class="btn-add-c">
+                                                                                                <i class="fas fa-plus"></i>
+                                                                                            </button>
+                                                                                            <button type="button"
+                                                                                                    class="btn-subtract-c">
+                                                                                                <i class="fas fa-minus"></i>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="passengers-type">
+                                                                                        <div class="text">
+                                                                                            <span class="count incount">0</span>
+                                                                                            <div class="type-label">
+                                                                                                <p class="fz14 mb-xs-0">
+                                                                                                    Infantes
+                                                                                                </p><span> Menos de 2 años  </span>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="button-set">
+                                                                                            <button type="button"
+                                                                                                    class="btn-add-in">
+                                                                                                <i class="fas fa-plus"></i>
+                                                                                            </button>
+                                                                                            <button type="button"
+                                                                                                    class="btn-subtract-in">
+                                                                                                <i class="fas fa-minus"></i>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="cabin-selection">
+                                                                                <h6>Clase </h6>
+                                                                                <div class="cabin-list">
+                                                                                    <button type="button"
+                                                                                            class="label-select-btn">
+                                                                                        <span class="muiButton-label">
+                                                                                            Economia
+                                                                                        </span>
+                                                                                    </button>
+                                                                                    <button type="button"
+                                                                                            class="label-select-btn active">
+                                                                                        <span class="muiButton-label">
+                                                                                            Ejecutiva
+                                                                                        </span>
+                                                                                    </button>
+                                                                                    <button type="button"
+                                                                                            class="label-select-btn">
+                                                                                        <span class="MuiButton-label">Primera  </span>
+                                                                                    </button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <span>Ejecutiva</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="top_form_search_button">
+                                                            <button class="btn btn_theme btn_md">Buscar</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+</section>
+
+<!-- Descubre nuestros ofertones -->
+
+<section id="explore_area" class="section_padding_top">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="section_heading_center">
+                    <h2>Descubre nuestros ofertones</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="theme_nav_tab">
+                    <nav class="theme_nav_tab_item">
+                        <div class="nav nav-tabs" id="nav-tab1" role="tablist">
+                            <button class="nav-link active" id="nav-hotels-tab" data-bs-toggle="tab"
+                                    data-bs-target="#nav-hotels" type="button" role="tab" aria-controls="nav-hotels"
+                                    aria-selected="true">
+                                Hoteles
+                            </button>
+                            <button class="nav-link" id="nav-tours-tab" data-bs-toggle="tab"
+                                    data-bs-target="#nav-tours" type="button" role="tab" aria-controls="nav-tours"
+                                    aria-selected="false">
+                                Tours
+                            </button>
+                            <button class="nav-link" id="nav-events-tab" data-bs-toggle="tab"
+                                    data-bs-target="#nav-events" type="button" role="tab" aria-controls="nav-events"
+                                    aria-selected="false">
+                                Eventos
+                            </button>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
