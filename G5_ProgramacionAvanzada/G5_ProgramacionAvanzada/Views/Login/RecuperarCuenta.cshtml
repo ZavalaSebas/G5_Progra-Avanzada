@@ -1,4 +1,4 @@
-﻿
+﻿@model G5_ProgramacionAvanzada.Entities.UsuarioEnt
 @{
     ViewBag.Title = "RecuperarCuenta";
     Layout = "~/Views/Shared/_Layout_Login.cshtml";
@@ -34,19 +34,21 @@
                     <div class="common_author_heading">
                         <h3>Recuperar cuenta</h3>
                     </div>
+
                     <div class="common_author_form">
-                        <form action="#" id="main_author_form">
+                        @using (Html.BeginForm("RecuperarCuenta", "Login", FormMethod.Post, new { @class = "main_author_form" }))
+                        {
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Correo electrónico" />
+                                @Html.TextBoxFor(m => m.Correo, new { @class = "form-control form-control-lg", @placeholder = "Correo Electrónico", @type = "email" })
                             </div>
-               
+
                             <div class="common_form_submit">
-                                <button class="btn btn_theme btn_md">Recuperar Acceso</button>
+                                <input type="submit" class="btn btn_theme btn_md" value="Recuperar Cuenta">
                             </div>
                             <div class="have_acount_area">
-                                <p>Ya tienes una cuenta? <a href="@Url.Action("IniciarSesion","Login")">Iniciar Sesión</a></p>
+                                <p>Ya tienes una cuenta? <a href="@Url.Action("IniciarSesion", "Login")">Iniciar Sesión</a></p>
                             </div>
-                        </form>
+                        }
                     </div>
                 </div>
             </div>
