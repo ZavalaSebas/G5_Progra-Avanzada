@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7097f6f3d473445e85e11ea50fbb383b" Name="Diagram1">
+        <EntityTypeShape EntityType="ProyectoPrograAvanzadaModel.amenidades" Width="1.5" PointX="8" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoPrograAvanzadaModel.carro" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoPrograAvanzadaModel.destino" Width="1.5" PointX="3" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoPrograAvanzadaModel.hoteles" Width="1.5" PointX="5.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoPrograAvanzadaModel.reserva" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoPrograAvanzadaModel.reservaCarro" Width="1.5" PointX="7.5" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoPrograAvanzadaModel.reservaHotel" Width="1.5" PointX="7.5" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoPrograAvanzadaModel.rol" Width="1.5" PointX="0.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoPrograAvanzadaModel.usuarios" Width="1.5" PointX="3" PointY="1.625" IsExpanded="true" />
+        <AssociationConnector Association="ProyectoPrograAvanzadaModel.FK__amenidade__IDHot__4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoPrograAvanzadaModel.FK__reserva__IDDesti__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoPrograAvanzadaModel.FK__reserva__IDUser__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoPrograAvanzadaModel.FK__reservaCa__IDRes__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoPrograAvanzadaModel.FK__reservaHo__IDRes__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoPrograAvanzadaModel.FK__usuarios__IDRol__398D8EEE" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
