@@ -12,24 +12,14 @@ namespace API
     using System;
     using System.Collections.Generic;
     
-    public partial class usuarios
+    public partial class TUsuario
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public usuarios()
-        {
-            this.reserva = new HashSet<reserva>();
-        }
-    
-        public int IDUser { get; set; }
-        public Nullable<int> IDRol { get; set; }
-        public string Username { get; set; }
+        public int ConUsuario { get; set; }
         public string Nombre { get; set; }
         public string Apellidos { get; set; }
         public string Correo { get; set; }
         public string Contrasenna { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<reserva> reserva { get; set; }
-        public virtual rol rol { get; set; }
+        public Nullable<bool> Estado { get; set; }
+        public string Rol { get; set; }
     }
 }

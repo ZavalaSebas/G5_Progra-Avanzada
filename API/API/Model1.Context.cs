@@ -13,10 +13,10 @@ namespace API
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ProyectoPrograAvanzadaEntities : DbContext
+    public partial class ProyectoPrograAvanzadaEntities1 : DbContext
     {
-        public ProyectoPrograAvanzadaEntities()
-            : base("name=ProyectoPrograAvanzadaEntities")
+        public ProyectoPrograAvanzadaEntities1()
+            : base("name=ProyectoPrograAvanzadaEntities1")
         {
         }
     
@@ -25,14 +25,6 @@ namespace API
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<amenidades> amenidades { get; set; }
-        public virtual DbSet<carro> carro { get; set; }
-        public virtual DbSet<destino> destino { get; set; }
-        public virtual DbSet<hoteles> hoteles { get; set; }
-        public virtual DbSet<reserva> reserva { get; set; }
-        public virtual DbSet<reservaCarro> reservaCarro { get; set; }
-        public virtual DbSet<reservaHotel> reservaHotel { get; set; }
-        public virtual DbSet<rol> rol { get; set; }
-        public virtual DbSet<usuarios> usuarios { get; set; }
+        public virtual DbSet<TUsuario> TUsuario { get; set; }
     }
 }
