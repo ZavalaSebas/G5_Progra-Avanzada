@@ -17,6 +17,9 @@
           <Property Name="Estado" Type="bit" />
           <Property Name="Rol" Type="varchar" MaxLength="20" />
         </EntityType>
+        <Function Name="RecuperarCuentaSP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Correo" Type="varchar" Mode="In" />
+        </Function>
         <EntityContainer Name="ProyectoPrograAvanzadaModelStoreContainer">
           <EntitySet Name="TUsuario" EntityType="Self.TUsuario" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
@@ -38,7 +41,15 @@
         </EntityType>
         <EntityContainer Name="ProyectoPrograAvanzadaEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="TUsuario" EntityType="Self.TUsuario" />
+          <FunctionImport Name="RecuperarCuentaSP" ReturnType="Collection(ProyectoPrograAvanzadaModel.RecuperarCuentaSP_Result)">
+            <Parameter Name="Correo" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
+        <ComplexType Name="RecuperarCuentaSP_Result">
+          <Property Type="String" Name="Nombre" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Correo" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Contrasenna" Nullable="true" MaxLength="100" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -58,6 +69,15 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="RecuperarCuentaSP" FunctionName="ProyectoPrograAvanzadaModel.Store.RecuperarCuentaSP">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ProyectoPrograAvanzadaModel.RecuperarCuentaSP_Result">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Contrasenna" ColumnName="Contrasenna" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

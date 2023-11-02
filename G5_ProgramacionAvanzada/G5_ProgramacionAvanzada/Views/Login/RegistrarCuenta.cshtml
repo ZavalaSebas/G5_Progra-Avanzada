@@ -32,8 +32,15 @@
                     </div>
 
                     <div class="common_author_form">
+                        @if (ViewBag.MensajeUsuario != null)
+                        {
+                            <div class="alert alert-danger" role="alert">
+                                <center>@ViewBag.MensajeUsuario</center>
+                            </div>
+                        }
                         @using (Html.BeginForm("RegistrarCuenta", "Login", FormMethod.Post, new { @class = "main_author_form" }))
                         {
+
                             <div class="form-group">
                                 @Html.TextBoxFor(m => m.Nombre, new { @class = "form-control form-control-lg", @placeholder = "Nombre", @type = "text" })
                             </div>

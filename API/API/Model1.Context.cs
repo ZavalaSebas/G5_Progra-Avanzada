@@ -12,6 +12,8 @@ namespace API
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class ProyectoPrograAvanzadaEntities1 : DbContext
     {
@@ -26,5 +28,14 @@ namespace API
         }
     
         public virtual DbSet<TUsuario> TUsuario { get; set; }
+    
+        public virtual ObjectResult<RecuperarCuentaSP_Result> RecuperarCuentaSP(string correo)
+        {
+            var correoParameter = correo != null ?
+                new ObjectParameter("Correo", correo) :
+                new ObjectParameter("Correo", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<RecuperarCuentaSP_Result>("RecuperarCuentaSP", correoParameter);
+        }
     }
 }

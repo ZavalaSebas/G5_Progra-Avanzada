@@ -28,7 +28,17 @@ namespace G5_ProgramacionAvanzada.Controllers
         public ActionResult IniciarSesion(UsuarioEnt entidad)
         {
             var respuesta = modelUsuario.IniciarSesion(entidad);
-            return View();
+            if (respuesta != null)
+            {
+                return RedirectToAction("Index", "Login");
+                
+            }
+            else
+            {
+                ViewBag.MensajeUsuario = "No se ha podido validar su informacion";
+                return View();
+            }
+
         }
 
         [HttpGet]
@@ -40,8 +50,20 @@ namespace G5_ProgramacionAvanzada.Controllers
         [HttpPost]
         public ActionResult RegistrarCuenta(UsuarioEnt entidad)
         {
-            var respuesta = modelUsuario.RegistrarCuenta(entidad);
-            return View();
+            entidad.Estado = true;
+            entidad.Rol = "Cliente";
+            string respuesta = modelUsuario.RegistrarCuenta(entidad);
+
+            if (respuesta == "OK")
+            {
+                return RedirectToAction("IniciarSesion", "Login");
+            }
+            else
+            {
+                ViewBag.MensajeUsuario = "No se ha podido registrar su informacion";
+                return View();
+            }
+            
         }
         [HttpGet]
         public ActionResult RecuperarCuenta()
@@ -51,8 +73,16 @@ namespace G5_ProgramacionAvanzada.Controllers
         [HttpPost]
         public ActionResult RecuperarCuenta(UsuarioEnt entidad)
         {
-            modelUsuario.RecuperarCuenta(entidad);
-            return View();
+            string respuesta = modelUsuario.RecuperarCuenta(entidad);
+            if (respuesta == "OK")
+            {
+                return RedirectToAction("IniciarSesion", "Login");
+            }
+            else
+            {
+                ViewBag.MensajeUsuario = "No se ha podido recuperar su informacion";
+                return View();
+            }
         }
     }
 }

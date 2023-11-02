@@ -28,12 +28,18 @@ namespace G5_ProgramacionAvanzada.Models
                 var urlApi = "https://localhost:44392/RegistrarCuenta";
                 var jsonData = JsonContent.Create(entidad);
                 var res = client.PostAsync(urlApi, jsonData).Result;
-                return res.Content.ReadAsStringAsync().Result;
+                return res.Content.ReadFromJsonAsync<string>().Result;
             }
         }
-        public void RecuperarCuenta(UsuarioEnt entidad)
+        public string RecuperarCuenta(UsuarioEnt entidad)
         {
-
+            using (var client = new HttpClient())
+            {
+                var urlApi = "https://localhost:44392/RecuperarCuenta";
+                var jsonData = JsonContent.Create(entidad);
+                var res = client.PostAsync(urlApi, jsonData).Result;
+                return res.Content.ReadFromJsonAsync<string>().Result;
+            }
         }
     }
 }

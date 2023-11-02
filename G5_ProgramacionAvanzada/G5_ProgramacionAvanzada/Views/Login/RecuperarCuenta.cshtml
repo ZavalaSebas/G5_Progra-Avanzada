@@ -35,6 +35,12 @@
                         <h3>Recuperar cuenta</h3>
                     </div>
 
+                    @if (ViewBag.MensajeUsuario != null)
+                    {
+                        <div class="alert alert-danger" role="alert">
+                            <center>@ViewBag.MensajeUsuario</center>
+                        </div>
+                    }
                     <div class="common_author_form">
                         @using (Html.BeginForm("RecuperarCuenta", "Login", FormMethod.Post, new { @class = "main_author_form" }))
                         {
