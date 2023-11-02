@@ -10,7 +10,7 @@ namespace G5_ProgramacionAvanzada.Controllers
 {
     public class LoginController : Controller
     {
-        UsuarioModel claseUsuario = new UsuarioModel();
+        UsuarioModel modelUsuario = new UsuarioModel();
 
         public ActionResult Index()
         {
@@ -27,7 +27,7 @@ namespace G5_ProgramacionAvanzada.Controllers
         [HttpPost]
         public ActionResult IniciarSesion(UsuarioEnt entidad)
         {
-            claseUsuario.IniciarSesion(entidad);
+            var respuesta = modelUsuario.IniciarSesion(entidad);
             return View();
         }
 
@@ -40,7 +40,7 @@ namespace G5_ProgramacionAvanzada.Controllers
         [HttpPost]
         public ActionResult RegistrarCuenta(UsuarioEnt entidad)
         {
-            claseUsuario.RegistrarCuenta(entidad);
+            var respuesta = modelUsuario.RegistrarCuenta(entidad);
             return View();
         }
         [HttpGet]
@@ -51,7 +51,7 @@ namespace G5_ProgramacionAvanzada.Controllers
         [HttpPost]
         public ActionResult RecuperarCuenta(UsuarioEnt entidad)
         {
-            claseUsuario.RecuperarCuenta(entidad);
+            modelUsuario.RecuperarCuenta(entidad);
             return View();
         }
     }
