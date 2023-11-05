@@ -11,48 +11,53 @@ namespace API.Controllers
     {
         Utilitarios util = new Utilitarios();
 
+        //-------------------------------------------------------------------
+
         [HttpPost]
         [Route("RegistrarCuenta")]
         public string RegistrarCuenta(UsuarioEnt entidad)
         {
-            try
+            using (var context = new ProyectoBDEntities())
             {
-                using (var context = new ProyectoPrograAvanzadaEntities1())
-            {
-                TUsuario user = new TUsuario();
-                user.Nombre = entidad.Nombre;
-                user.Apellidos = entidad.Apellidos;
-                user.Correo = entidad.Correo;
-                user.Contrasenna = entidad.Contrasenna;
-                user.Estado = entidad.Estado;
-                user.Rol = entidad.Rol;
+                try
+                {
+                    usuarios user = new usuarios();
+                    user.username = entidad.username;
+                    user.nombre = entidad.nombre;
+                    user.apellidos = entidad.apellidos;
+                    user.email = entidad.email;
+                    user.contrasenna = entidad.contrasenna;
+                    user.estado = true;
+                    user.IDRol = 2;
+
+                    context.usuarios.Add(user);
+                    context.SaveChanges();
+
+                    return "ok";
+                }
+                catch (Exception)
+                {
+                    return "Error";
+                }
 
 
-                context.TUsuario.Add(user);
-                context.SaveChanges();
-
-                return "OK";
-            }
-            }
-            catch (Exception)
-            {
-                return string.Empty;
             }
         }
-
-        //ESTE DEBERIA SER DE TIPO GET POR QUE ES CONSULTA PERO PARA QUE NO VIAJE POR URL SE HACE POST, POR SEGURIDAD
+        //-------------------------------------------------------------------
         [HttpPost]
         [Route("IniciarSesion")]
-        public TUsuario IniciarSesion(UsuarioEnt entidad)
+        public usuarios IniciarSesion(UsuarioEnt entidad)
         {
             try
             {
-                using (var context = new ProyectoPrograAvanzadaEntities1())
+
+                using (var context = new ProyectoBDEntities())
                 {
-                    var datos = (from x in context.TUsuario
-                                 where x.Correo == entidad.Correo
-                                 && x.Contrasenna == entidad.Contrasenna
-                                 && x.Estado == true
+                    context.Configuration.LazyLoadingEnabled = false;
+                    var datos = (from x in context.usuarios
+                                 where x.email == entidad.email
+                                 && x.contrasenna == entidad.contrasenna
+                                 && x.estado == true
                                  select x).FirstOrDefault();
 
                     return datos;
@@ -64,6 +69,8 @@ namespace API.Controllers
                 return null;
             }
         }
+        //-------------------------------------------------------------------
+
 
         [HttpPost]
         [Route("RecuperarCuenta")]
@@ -71,14 +78,16 @@ namespace API.Controllers
         {
             try
             {
-                using (var context = new ProyectoPrograAvanzadaEntities1())
+                using (var context = new ProyectoBDEntities())
                 {
-                    var datos = context.RecuperarCuentaSP(entidad.Correo).FirstOrDefault();
+                    var datos = context.usuarios
+                      .Where(u => u.email == entidad.email)
+                      .FirstOrDefault();
 
                     if (datos != null)
                     {
-                        string contenido = "Estimad@: " + datos.Nombre + ". Contraseña: " + datos.Contrasenna;
-                        util.EnviarCorreo(datos.Correo, "Contraseña de Acceso", contenido);
+                        string contenido = "Estimad@: " + datos.nombre + ". Contraseña: " + datos.contrasenna;
+                        util.EnviarCorreo(datos.email, "Contraseña de Acceso", contenido);
                         return "OK";
                     }
                     else
@@ -92,6 +101,7 @@ namespace API.Controllers
                 return string.Empty;
             }
         }
+
 
     }
 }
