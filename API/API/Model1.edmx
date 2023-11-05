@@ -4,80 +4,526 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="ProyectoPrograAvanzadaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="TUsuario">
+      <Schema Namespace="ProyectoBDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="amenidades">
           <Key>
-            <PropertyRef Name="ConUsuario" />
+            <PropertyRef Name="IDAmenidades" />
           </Key>
-          <Property Name="ConUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Nombre" Type="varchar" MaxLength="50" />
-          <Property Name="Apellidos" Type="varchar" MaxLength="50" />
-          <Property Name="Correo" Type="varchar" MaxLength="100" />
-          <Property Name="Contrasenna" Type="varchar" MaxLength="100" />
-          <Property Name="Estado" Type="bit" />
-          <Property Name="Rol" Type="varchar" MaxLength="20" />
+          <Property Name="IDAmenidades" Type="int" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="icono" Type="varchar" MaxLength="100" />
         </EntityType>
-        <Function Name="RecuperarCuentaSP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="Correo" Type="varchar" Mode="In" />
-        </Function>
-        <EntityContainer Name="ProyectoPrograAvanzadaModelStoreContainer">
-          <EntitySet Name="TUsuario" EntityType="Self.TUsuario" Schema="dbo" store:Type="Tables" />
+        <EntityType Name="carro">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="marca" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="modelo" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="annio" Type="int" Nullable="false" />
+          <Property Name="imagen" Type="varchar" MaxLength="255" />
+          <Property Name="precio" Type="money" />
+          <Property Name="disponibilidad" Type="bit" />
+        </EntityType>
+        <EntityType Name="destino">
+          <Key>
+            <PropertyRef Name="IDDestino" />
+          </Key>
+          <Property Name="IDDestino" Type="bigint" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="pais" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="precio" Type="money" />
+          <Property Name="imagen" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="hoteles">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="direccion" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="pais" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="puntuacion" Type="decimal" Precision="3" Scale="2" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="precio" Type="money" Nullable="false" />
+          <Property Name="imagen" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="IdAmenidades" Type="int" />
+        </EntityType>
+        <EntityType Name="reserva">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="TIPO" Type="int" Nullable="false" />
+          <Property Name="IDUser" Type="bigint" Nullable="false" />
+          <Property Name="IDDestino" Type="bigint" Nullable="false" />
+          <Property Name="salida" Type="date" Nullable="false" />
+          <Property Name="entrada" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="reservaCarro">
+          <Key>
+            <PropertyRef Name="IDCarro" />
+          </Key>
+          <Property Name="IDCarro" Type="bigint" Nullable="false" />
+          <Property Name="IDReserva" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="reservaHotel">
+          <Key>
+            <PropertyRef Name="IDHotel" />
+          </Key>
+          <Property Name="IDHotel" Type="bigint" Nullable="false" />
+          <Property Name="IDReserva" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="rol">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="25" Nullable="false" />
+        </EntityType>
+        <EntityType Name="usuarios">
+          <Key>
+            <PropertyRef Name="IDUser" />
+          </Key>
+          <Property Name="IDUser" Type="bigint" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="apellidos" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="contrasenna" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="estado" Type="bit" Nullable="false" />
+          <Property Name="IDRol" Type="bigint" />
+        </EntityType>
+        <Association Name="FK__hoteles__IdAmeni__4E88ABD4">
+          <End Role="amenidades" Type="Self.amenidades" Multiplicity="0..1" />
+          <End Role="hoteles" Type="Self.hoteles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="amenidades">
+              <PropertyRef Name="IDAmenidades" />
+            </Principal>
+            <Dependent Role="hoteles">
+              <PropertyRef Name="IdAmenidades" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__reserva__IDDesti__412EB0B6">
+          <End Role="destino" Type="Self.destino" Multiplicity="1" />
+          <End Role="reserva" Type="Self.reserva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="destino">
+              <PropertyRef Name="IDDestino" />
+            </Principal>
+            <Dependent Role="reserva">
+              <PropertyRef Name="IDDestino" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__reserva__IDUser__403A8C7D">
+          <End Role="usuarios" Type="Self.usuarios" Multiplicity="1" />
+          <End Role="reserva" Type="Self.reserva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuarios">
+              <PropertyRef Name="IDUser" />
+            </Principal>
+            <Dependent Role="reserva">
+              <PropertyRef Name="IDUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__reservaCa__IDRes__440B1D61">
+          <End Role="reserva" Type="Self.reserva" Multiplicity="1" />
+          <End Role="reservaCarro" Type="Self.reservaCarro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="reserva">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="reservaCarro">
+              <PropertyRef Name="IDReserva" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__reservaHo__IDRes__46E78A0C">
+          <End Role="reserva" Type="Self.reserva" Multiplicity="1" />
+          <End Role="reservaHotel" Type="Self.reservaHotel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="reserva">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="reservaHotel">
+              <PropertyRef Name="IDReserva" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__usuarios__IDRol__3B75D760">
+          <End Role="rol" Type="Self.rol" Multiplicity="0..1" />
+          <End Role="usuarios" Type="Self.usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="rol">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="usuarios">
+              <PropertyRef Name="IDRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ProyectoBDModelStoreContainer">
+          <EntitySet Name="amenidades" EntityType="Self.amenidades" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="carro" EntityType="Self.carro" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="destino" EntityType="Self.destino" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="hoteles" EntityType="Self.hoteles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="reserva" EntityType="Self.reserva" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="reservaCarro" EntityType="Self.reservaCarro" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="reservaHotel" EntityType="Self.reservaHotel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="rol" EntityType="Self.rol" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="usuarios" EntityType="Self.usuarios" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__hoteles__IdAmeni__4E88ABD4" Association="Self.FK__hoteles__IdAmeni__4E88ABD4">
+            <End Role="amenidades" EntitySet="amenidades" />
+            <End Role="hoteles" EntitySet="hoteles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__reserva__IDDesti__412EB0B6" Association="Self.FK__reserva__IDDesti__412EB0B6">
+            <End Role="destino" EntitySet="destino" />
+            <End Role="reserva" EntitySet="reserva" />
+          </AssociationSet>
+          <AssociationSet Name="FK__reserva__IDUser__403A8C7D" Association="Self.FK__reserva__IDUser__403A8C7D">
+            <End Role="usuarios" EntitySet="usuarios" />
+            <End Role="reserva" EntitySet="reserva" />
+          </AssociationSet>
+          <AssociationSet Name="FK__reservaCa__IDRes__440B1D61" Association="Self.FK__reservaCa__IDRes__440B1D61">
+            <End Role="reserva" EntitySet="reserva" />
+            <End Role="reservaCarro" EntitySet="reservaCarro" />
+          </AssociationSet>
+          <AssociationSet Name="FK__reservaHo__IDRes__46E78A0C" Association="Self.FK__reservaHo__IDRes__46E78A0C">
+            <End Role="reserva" EntitySet="reserva" />
+            <End Role="reservaHotel" EntitySet="reservaHotel" />
+          </AssociationSet>
+          <AssociationSet Name="FK__usuarios__IDRol__3B75D760" Association="Self.FK__usuarios__IDRol__3B75D760">
+            <End Role="rol" EntitySet="rol" />
+            <End Role="usuarios" EntitySet="usuarios" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="ProyectoPrograAvanzadaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="TUsuario">
+      <Schema Namespace="ProyectoBDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="amenidades">
           <Key>
-            <PropertyRef Name="ConUsuario" />
+            <PropertyRef Name="IDAmenidades" />
           </Key>
-          <Property Name="ConUsuario" Type="Int32" Nullable="false" />
-          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Apellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Correo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Contrasenna" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Estado" Type="Boolean" />
-          <Property Name="Rol" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IDAmenidades" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="icono" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="hoteles" Relationship="Self.FK__hoteles__IdAmeni__4E88ABD4" FromRole="amenidades" ToRole="hoteles" />
         </EntityType>
-        <EntityContainer Name="ProyectoPrograAvanzadaEntities1" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="TUsuario" EntityType="Self.TUsuario" />
-          <FunctionImport Name="RecuperarCuentaSP" ReturnType="Collection(ProyectoPrograAvanzadaModel.RecuperarCuentaSP_Result)">
-            <Parameter Name="Correo" Mode="In" Type="String" />
-          </FunctionImport>
+        <EntityType Name="carro">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="marca" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="modelo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="annio" Type="Int32" Nullable="false" />
+          <Property Name="imagen" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="precio" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="disponibilidad" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="destino">
+          <Key>
+            <PropertyRef Name="IDDestino" />
+          </Key>
+          <Property Name="IDDestino" Type="Int64" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pais" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="precio" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="imagen" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="reserva" Relationship="Self.FK__reserva__IDDesti__412EB0B6" FromRole="destino" ToRole="reserva" />
+        </EntityType>
+        <EntityType Name="hoteles">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="direccion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pais" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="puntuacion" Type="Decimal" Precision="3" Scale="2" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="precio" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="imagen" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdAmenidades" Type="Int32" />
+          <NavigationProperty Name="amenidades" Relationship="Self.FK__hoteles__IdAmeni__4E88ABD4" FromRole="hoteles" ToRole="amenidades" />
+        </EntityType>
+        <EntityType Name="reserva">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="TIPO" Type="Int32" Nullable="false" />
+          <Property Name="IDUser" Type="Int64" Nullable="false" />
+          <Property Name="IDDestino" Type="Int64" Nullable="false" />
+          <Property Name="salida" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="entrada" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="destino" Relationship="Self.FK__reserva__IDDesti__412EB0B6" FromRole="reserva" ToRole="destino" />
+          <NavigationProperty Name="usuarios" Relationship="Self.FK__reserva__IDUser__403A8C7D" FromRole="reserva" ToRole="usuarios" />
+          <NavigationProperty Name="reservaCarro" Relationship="Self.FK__reservaCa__IDRes__440B1D61" FromRole="reserva" ToRole="reservaCarro" />
+          <NavigationProperty Name="reservaHotel" Relationship="Self.FK__reservaHo__IDRes__46E78A0C" FromRole="reserva" ToRole="reservaHotel" />
+        </EntityType>
+        <EntityType Name="reservaCarro">
+          <Key>
+            <PropertyRef Name="IDCarro" />
+          </Key>
+          <Property Name="IDCarro" Type="Int64" Nullable="false" />
+          <Property Name="IDReserva" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="reserva" Relationship="Self.FK__reservaCa__IDRes__440B1D61" FromRole="reservaCarro" ToRole="reserva" />
+        </EntityType>
+        <EntityType Name="reservaHotel">
+          <Key>
+            <PropertyRef Name="IDHotel" />
+          </Key>
+          <Property Name="IDHotel" Type="Int64" Nullable="false" />
+          <Property Name="IDReserva" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="reserva" Relationship="Self.FK__reservaHo__IDRes__46E78A0C" FromRole="reservaHotel" ToRole="reserva" />
+        </EntityType>
+        <EntityType Name="rol">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="usuarios" Relationship="Self.FK__usuarios__IDRol__3B75D760" FromRole="rol" ToRole="usuarios" />
+        </EntityType>
+        <EntityType Name="usuarios">
+          <Key>
+            <PropertyRef Name="IDUser" />
+          </Key>
+          <Property Name="IDUser" Type="Int64" Nullable="false" />
+          <Property Name="username" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellidos" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="contrasenna" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="estado" Type="Boolean" Nullable="false" />
+          <Property Name="IDRol" Type="Int64" />
+          <NavigationProperty Name="reserva" Relationship="Self.FK__reserva__IDUser__403A8C7D" FromRole="usuarios" ToRole="reserva" />
+          <NavigationProperty Name="rol" Relationship="Self.FK__usuarios__IDRol__3B75D760" FromRole="usuarios" ToRole="rol" />
+        </EntityType>
+        <Association Name="FK__hoteles__IdAmeni__4E88ABD4">
+          <End Role="amenidades" Type="Self.amenidades" Multiplicity="0..1" />
+          <End Role="hoteles" Type="Self.hoteles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="amenidades">
+              <PropertyRef Name="IDAmenidades" />
+            </Principal>
+            <Dependent Role="hoteles">
+              <PropertyRef Name="IdAmenidades" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__reserva__IDDesti__412EB0B6">
+          <End Role="destino" Type="Self.destino" Multiplicity="1" />
+          <End Role="reserva" Type="Self.reserva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="destino">
+              <PropertyRef Name="IDDestino" />
+            </Principal>
+            <Dependent Role="reserva">
+              <PropertyRef Name="IDDestino" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__reserva__IDUser__403A8C7D">
+          <End Role="usuarios" Type="Self.usuarios" Multiplicity="1" />
+          <End Role="reserva" Type="Self.reserva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuarios">
+              <PropertyRef Name="IDUser" />
+            </Principal>
+            <Dependent Role="reserva">
+              <PropertyRef Name="IDUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__reservaCa__IDRes__440B1D61">
+          <End Role="reserva" Type="Self.reserva" Multiplicity="1" />
+          <End Role="reservaCarro" Type="Self.reservaCarro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="reserva">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="reservaCarro">
+              <PropertyRef Name="IDReserva" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__reservaHo__IDRes__46E78A0C">
+          <End Role="reserva" Type="Self.reserva" Multiplicity="1" />
+          <End Role="reservaHotel" Type="Self.reservaHotel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="reserva">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="reservaHotel">
+              <PropertyRef Name="IDReserva" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__usuarios__IDRol__3B75D760">
+          <End Role="rol" Type="Self.rol" Multiplicity="0..1" />
+          <End Role="usuarios" Type="Self.usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="rol">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="usuarios">
+              <PropertyRef Name="IDRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ProyectoBDEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="amenidades" EntityType="Self.amenidades" />
+          <EntitySet Name="carro" EntityType="Self.carro" />
+          <EntitySet Name="destino" EntityType="Self.destino" />
+          <EntitySet Name="hoteles" EntityType="Self.hoteles" />
+          <EntitySet Name="reserva" EntityType="Self.reserva" />
+          <EntitySet Name="reservaCarro" EntityType="Self.reservaCarro" />
+          <EntitySet Name="reservaHotel" EntityType="Self.reservaHotel" />
+          <EntitySet Name="rol" EntityType="Self.rol" />
+          <EntitySet Name="usuarios" EntityType="Self.usuarios" />
+          <AssociationSet Name="FK__hoteles__IdAmeni__4E88ABD4" Association="Self.FK__hoteles__IdAmeni__4E88ABD4">
+            <End Role="amenidades" EntitySet="amenidades" />
+            <End Role="hoteles" EntitySet="hoteles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__reserva__IDDesti__412EB0B6" Association="Self.FK__reserva__IDDesti__412EB0B6">
+            <End Role="destino" EntitySet="destino" />
+            <End Role="reserva" EntitySet="reserva" />
+          </AssociationSet>
+          <AssociationSet Name="FK__reserva__IDUser__403A8C7D" Association="Self.FK__reserva__IDUser__403A8C7D">
+            <End Role="usuarios" EntitySet="usuarios" />
+            <End Role="reserva" EntitySet="reserva" />
+          </AssociationSet>
+          <AssociationSet Name="FK__reservaCa__IDRes__440B1D61" Association="Self.FK__reservaCa__IDRes__440B1D61">
+            <End Role="reserva" EntitySet="reserva" />
+            <End Role="reservaCarro" EntitySet="reservaCarro" />
+          </AssociationSet>
+          <AssociationSet Name="FK__reservaHo__IDRes__46E78A0C" Association="Self.FK__reservaHo__IDRes__46E78A0C">
+            <End Role="reserva" EntitySet="reserva" />
+            <End Role="reservaHotel" EntitySet="reservaHotel" />
+          </AssociationSet>
+          <AssociationSet Name="FK__usuarios__IDRol__3B75D760" Association="Self.FK__usuarios__IDRol__3B75D760">
+            <End Role="rol" EntitySet="rol" />
+            <End Role="usuarios" EntitySet="usuarios" />
+          </AssociationSet>
         </EntityContainer>
-        <ComplexType Name="RecuperarCuentaSP_Result">
-          <Property Type="String" Name="Nombre" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="Correo" Nullable="true" MaxLength="100" />
-          <Property Type="String" Name="Contrasenna" Nullable="true" MaxLength="100" />
-        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ProyectoPrograAvanzadaModelStoreContainer" CdmEntityContainer="ProyectoPrograAvanzadaEntities1">
-          <EntitySetMapping Name="TUsuario">
-            <EntityTypeMapping TypeName="ProyectoPrograAvanzadaModel.TUsuario">
-              <MappingFragment StoreEntitySet="TUsuario">
-                <ScalarProperty Name="ConUsuario" ColumnName="ConUsuario" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
-                <ScalarProperty Name="Correo" ColumnName="Correo" />
-                <ScalarProperty Name="Contrasenna" ColumnName="Contrasenna" />
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
-                <ScalarProperty Name="Rol" ColumnName="Rol" />
+        <EntityContainerMapping StorageEntityContainer="ProyectoBDModelStoreContainer" CdmEntityContainer="ProyectoBDEntities">
+          <EntitySetMapping Name="amenidades">
+            <EntityTypeMapping TypeName="ProyectoBDModel.amenidades">
+              <MappingFragment StoreEntitySet="amenidades">
+                <ScalarProperty Name="IDAmenidades" ColumnName="IDAmenidades" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="icono" ColumnName="icono" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="RecuperarCuentaSP" FunctionName="ProyectoPrograAvanzadaModel.Store.RecuperarCuentaSP">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="ProyectoPrograAvanzadaModel.RecuperarCuentaSP_Result">
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="Correo" ColumnName="Correo" />
-                <ScalarProperty Name="Contrasenna" ColumnName="Contrasenna" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
+          <EntitySetMapping Name="carro">
+            <EntityTypeMapping TypeName="ProyectoBDModel.carro">
+              <MappingFragment StoreEntitySet="carro">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="marca" ColumnName="marca" />
+                <ScalarProperty Name="modelo" ColumnName="modelo" />
+                <ScalarProperty Name="annio" ColumnName="annio" />
+                <ScalarProperty Name="imagen" ColumnName="imagen" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="disponibilidad" ColumnName="disponibilidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="destino">
+            <EntityTypeMapping TypeName="ProyectoBDModel.destino">
+              <MappingFragment StoreEntitySet="destino">
+                <ScalarProperty Name="IDDestino" ColumnName="IDDestino" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="pais" ColumnName="pais" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="imagen" ColumnName="imagen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="hoteles">
+            <EntityTypeMapping TypeName="ProyectoBDModel.hoteles">
+              <MappingFragment StoreEntitySet="hoteles">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="pais" ColumnName="pais" />
+                <ScalarProperty Name="puntuacion" ColumnName="puntuacion" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="imagen" ColumnName="imagen" />
+                <ScalarProperty Name="IdAmenidades" ColumnName="IdAmenidades" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="reserva">
+            <EntityTypeMapping TypeName="ProyectoBDModel.reserva">
+              <MappingFragment StoreEntitySet="reserva">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TIPO" ColumnName="TIPO" />
+                <ScalarProperty Name="IDUser" ColumnName="IDUser" />
+                <ScalarProperty Name="IDDestino" ColumnName="IDDestino" />
+                <ScalarProperty Name="salida" ColumnName="salida" />
+                <ScalarProperty Name="entrada" ColumnName="entrada" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="reservaCarro">
+            <EntityTypeMapping TypeName="ProyectoBDModel.reservaCarro">
+              <MappingFragment StoreEntitySet="reservaCarro">
+                <ScalarProperty Name="IDCarro" ColumnName="IDCarro" />
+                <ScalarProperty Name="IDReserva" ColumnName="IDReserva" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="reservaHotel">
+            <EntityTypeMapping TypeName="ProyectoBDModel.reservaHotel">
+              <MappingFragment StoreEntitySet="reservaHotel">
+                <ScalarProperty Name="IDHotel" ColumnName="IDHotel" />
+                <ScalarProperty Name="IDReserva" ColumnName="IDReserva" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rol">
+            <EntityTypeMapping TypeName="ProyectoBDModel.rol">
+              <MappingFragment StoreEntitySet="rol">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usuarios">
+            <EntityTypeMapping TypeName="ProyectoBDModel.usuarios">
+              <MappingFragment StoreEntitySet="usuarios">
+                <ScalarProperty Name="IDUser" ColumnName="IDUser" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="contrasenna" ColumnName="contrasenna" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="IDRol" ColumnName="IDRol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -95,7 +541,7 @@
         <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
-        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->

@@ -1,13 +1,18 @@
 -- Crear la base de datos
-CREATE DATABASE ProyectoPrograAvanzada;
+CREATE DATABASE ProyectoBD;
 
-use ProyectoPrograAvanzada;
+use ProyectoBD;
 
 -- Crear la tabla 'rol'
 CREATE TABLE rol (
     ID BIGINT PRIMARY KEY,
     nombre VARCHAR(25) NOT NULL
 );
+
+insert into rol (ID, nombre)
+VALUES  
+(1, 'Administrador'),
+(2, 'Usuario');
 
 -- Crear la tabla 'usuarios'
 CREATE TABLE usuarios (
@@ -17,9 +22,11 @@ CREATE TABLE usuarios (
     apellidos VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
     contrasenna VARCHAR(12) NOT NULL,
-    IDRol BIGINT,
+	estado BIT DEFAULT 1 NOT NULL,
+    IDRol BIGINT DEFAULT 2,
     FOREIGN KEY (IDRol) REFERENCES rol(ID)
 );
+
 
 -- Crear la tabla 'destino'
 CREATE TABLE destino (
@@ -68,18 +75,6 @@ CREATE TABLE carro (
     disponibilidad BIT
 );
 
--- Crear la tabla 'hoteles'
-CREATE TABLE hoteles (
-    ID INT PRIMARY KEY,
-    nombre VARCHAR(255) NOT NULL,
-    direccion VARCHAR(255) NOT NULL,
-    pais VARCHAR(255) NOT NULL,
-    puntuacion DECIMAL(3, 2) NOT NULL,
-    descripcion VARCHAR(255) NOT NULL,
-    precio MONEY NOT NULL,
-    imagen VARCHAR(255) NOT NULL
-);
-
 -- Crear la tabla 'amenidades'
 CREATE TABLE amenidades (
     IDAmenidades INT PRIMARY KEY,
@@ -109,3 +104,22 @@ VALUES
     (15, 'Desayuno incluido', 'Desayuno proporcionado como parte del hospedaje', 'desayuno-icono'),
     (16, 'Acceso para personas con movilidad reducida', 'Instalaciones adaptadas para personas con movilidad reducida', 'movilidad-icono'),
     (17, 'Recepción 24 horas', 'Recepción disponible durante todo el día', 'recepcion-icono');
+
+	-- Crear la tabla 'hoteles'
+CREATE TABLE hoteles (
+    ID INT PRIMARY KEY,
+    nombre VARCHAR(255) NOT NULL,
+    direccion VARCHAR(255) NOT NULL,
+    pais VARCHAR(255) NOT NULL,
+    puntuacion DECIMAL(3, 2) NOT NULL,
+    descripcion VARCHAR(255) NOT NULL,
+    precio MONEY NOT NULL,
+    imagen VARCHAR(255) NOT NULL,
+	IdAmenidades Int,
+    FOREIGN KEY (IdAmenidades) REFERENCES amenidades(IDAmenidades)
+);
+
+
+select * from usuarios
+
+select * from hoteles
