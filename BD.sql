@@ -16,7 +16,7 @@ VALUES
 
 -- Crear la tabla 'usuarios'
 CREATE TABLE usuarios (
-    IDUser BIGINT PRIMARY KEY,
+    IDUser BIGINT IDENTITY(1,1) PRIMARY KEY,
     username VARCHAR(10) NOT NULL,
     nombre VARCHAR(25) NOT NULL,
     apellidos VARCHAR(255) NOT NULL,
