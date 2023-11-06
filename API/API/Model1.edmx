@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ProyectoBDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ProyectoBDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="amenidades">
           <Key>
             <PropertyRef Name="IDAmenidades" />
@@ -87,7 +87,7 @@
           <Key>
             <PropertyRef Name="IDUser" />
           </Key>
-          <Property Name="IDUser" Type="bigint" Nullable="false" />
+          <Property Name="IDUser" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="username" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="nombre" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="apellidos" Type="varchar" MaxLength="255" Nullable="false" />
@@ -108,7 +108,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__reserva__IDDesti__412EB0B6">
+        <Association Name="FK__reserva__IDDesti__656C112C">
           <End Role="destino" Type="Self.destino" Multiplicity="1" />
           <End Role="reserva" Type="Self.reserva" Multiplicity="*" />
           <ReferentialConstraint>
@@ -120,7 +120,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__reserva__IDUser__403A8C7D">
+        <Association Name="FK__reserva__IDUser__6477ECF3">
           <End Role="usuarios" Type="Self.usuarios" Multiplicity="1" />
           <End Role="reserva" Type="Self.reserva" Multiplicity="*" />
           <ReferentialConstraint>
@@ -132,7 +132,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__reservaCa__IDRes__440B1D61">
+        <Association Name="FK__reservaCa__IDRes__68487DD7">
           <End Role="reserva" Type="Self.reserva" Multiplicity="1" />
           <End Role="reservaCarro" Type="Self.reservaCarro" Multiplicity="*" />
           <ReferentialConstraint>
@@ -144,7 +144,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__reservaHo__IDRes__46E78A0C">
+        <Association Name="FK__reservaHo__IDRes__6B24EA82">
           <End Role="reserva" Type="Self.reserva" Multiplicity="1" />
           <End Role="reservaHotel" Type="Self.reservaHotel" Multiplicity="*" />
           <ReferentialConstraint>
@@ -156,7 +156,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__usuarios__IDRol__3B75D760">
+        <Association Name="FK__usuarios__IDRol__619B8048">
           <End Role="rol" Type="Self.rol" Multiplicity="0..1" />
           <End Role="usuarios" Type="Self.usuarios" Multiplicity="*" />
           <ReferentialConstraint>
@@ -182,29 +182,28 @@
             <End Role="amenidades" EntitySet="amenidades" />
             <End Role="hoteles" EntitySet="hoteles" />
           </AssociationSet>
-          <AssociationSet Name="FK__reserva__IDDesti__412EB0B6" Association="Self.FK__reserva__IDDesti__412EB0B6">
+          <AssociationSet Name="FK__reserva__IDDesti__656C112C" Association="Self.FK__reserva__IDDesti__656C112C">
             <End Role="destino" EntitySet="destino" />
             <End Role="reserva" EntitySet="reserva" />
           </AssociationSet>
-          <AssociationSet Name="FK__reserva__IDUser__403A8C7D" Association="Self.FK__reserva__IDUser__403A8C7D">
+          <AssociationSet Name="FK__reserva__IDUser__6477ECF3" Association="Self.FK__reserva__IDUser__6477ECF3">
             <End Role="usuarios" EntitySet="usuarios" />
             <End Role="reserva" EntitySet="reserva" />
           </AssociationSet>
-          <AssociationSet Name="FK__reservaCa__IDRes__440B1D61" Association="Self.FK__reservaCa__IDRes__440B1D61">
+          <AssociationSet Name="FK__reservaCa__IDRes__68487DD7" Association="Self.FK__reservaCa__IDRes__68487DD7">
             <End Role="reserva" EntitySet="reserva" />
             <End Role="reservaCarro" EntitySet="reservaCarro" />
           </AssociationSet>
-          <AssociationSet Name="FK__reservaHo__IDRes__46E78A0C" Association="Self.FK__reservaHo__IDRes__46E78A0C">
+          <AssociationSet Name="FK__reservaHo__IDRes__6B24EA82" Association="Self.FK__reservaHo__IDRes__6B24EA82">
             <End Role="reserva" EntitySet="reserva" />
             <End Role="reservaHotel" EntitySet="reservaHotel" />
           </AssociationSet>
-          <AssociationSet Name="FK__usuarios__IDRol__3B75D760" Association="Self.FK__usuarios__IDRol__3B75D760">
+          <AssociationSet Name="FK__usuarios__IDRol__619B8048" Association="Self.FK__usuarios__IDRol__619B8048">
             <End Role="rol" EntitySet="rol" />
             <End Role="usuarios" EntitySet="usuarios" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ProyectoBDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">

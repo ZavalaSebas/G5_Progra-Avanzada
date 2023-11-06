@@ -1,7 +1,82 @@
-﻿
+﻿@model IEnumerable<G5_ProgramacionAvanzada.Entities.UsuarioEnt>
 @{
     ViewBag.Title = "ListaUsuarios";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>ListaUsuarios</h2>
+<!-- Banner Area -->
+<section id="common_banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="common_bannner_text">
+                    <h2></h2>
+                    <ul>
+                        <li><a href="@Url.Action("Index","Login")">Index</a></li>
+                        <li><span><i class="fas fa-circle"></i></span> Usuarios</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
+<!-- Area -->
+
+<section id="dashboard_main_arae" class="section_padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="dashboard_common_table">
+                    <h3>Usuarios Registrados</h3>
+                    <div class="table-responsive-lg table_common_area">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>IDRol</th>
+                                    <th>Username</th>
+                                    <th>Nombre</th>
+                                    <th>Apellidos</th>
+                                    <th>Email</th>
+                                    <th>Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.IDRol</td>
+                                        <td>@item.nombre</td>
+                                        <td>@item.apellidos</td>
+                                        <td>@item.email</td>
+                                        <td>@item.estado</td>
+                                    </tr>
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="pagination_area">
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true">«</span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true">»</span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

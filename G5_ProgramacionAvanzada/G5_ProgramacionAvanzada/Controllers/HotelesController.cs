@@ -1,4 +1,5 @@
-﻿using G5_ProgramacionAvanzada.Models;
+﻿using G5_ProgramacionAvanzada.Entities;
+using G5_ProgramacionAvanzada.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,27 +10,58 @@ namespace G5_ProgramacionAvanzada.Controllers
 {
     public class HotelesController : Controller
     {
-        HotelesModel modelUsuario = new HotelesModel();
+        HotelesModel MH = new HotelesModel();
 
+        //-------------------------------------------------------------------
+        [HttpGet]
         public ActionResult AnadirHotel()
         {
+            ViewBag.Amenidades = MH.Amenidades();
             return View();
         }
+
+        [HttpPost]
+        public ActionResult AnadirHotel(HotelesEnt entidad)
+        {
+            string respuesta = MH.AnadirHotel(entidad);
+
+            if (respuesta == "ok")
+            {
+                return RedirectToAction("ConsultaHotel", "Hoteles");
+            }
+            else
+            {
+                ViewBag.MensajeUsuario = "No se ha podido registrar su información";
+                return View();
+            }
+        }
+
+        //-------------------------------------------------------------------
+
+        [HttpGet]
         public ActionResult ConsultaHotel()
         {
-            return View();
+            var datos = MH.ConsultaHotel();
+            return View(datos);
         }
+
+        //-------------------------------------------------------------------
+
         public ActionResult EditarHotel()
         {
             return View();
         }
+        //-------------------------------------------------------------------
+
         public ActionResult EliminarHotel()
         {
             return View();
         }
+        //-------------------------------------------------------------------
+
         public ActionResult Amenidades()
         {
-            var datos = modelUsuario.Amenidades();
+            var datos = MH.Amenidades();
             return View(datos);
         }
     }
