@@ -45,7 +45,7 @@
                         @using (Html.BeginForm("RecuperarCuenta", "Login", FormMethod.Post, new { @class = "main_author_form" }))
                         {
                             <div class="form-group">
-                                @Html.TextBoxFor(m => m.Correo, new { @class = "form-control form-control-lg", @placeholder = "Correo Electrónico", @type = "email" })
+                                @Html.TextBoxFor(m => m.email, new { @class = "form-control form-control-lg", @placeholder = "Correo Electrónico", @type = "email" })
                             </div>
 
                             <div class="common_form_submit">

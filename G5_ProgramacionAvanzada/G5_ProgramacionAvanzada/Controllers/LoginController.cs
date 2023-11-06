@@ -11,18 +11,25 @@ namespace G5_ProgramacionAvanzada.Controllers
     public class LoginController : Controller
     {
         UsuarioModel modelUsuario = new UsuarioModel();
-
+        //-------------------------------------------------------------------
         public ActionResult Index()
         {
             return View();
         }
+        //-------------------------------------------------------------------
+        [HttpGet]
+        public ActionResult ListaUsuarios()
+        {
+            var datos = modelUsuario.ListaUsuarios();
+            return View(datos);
+        }
+        //-------------------------------------------------------------------
 
         [HttpGet]
         public ActionResult IniciarSesion()
         {
             return View();
         }
-
 
         [HttpPost]
         public ActionResult IniciarSesion(UsuarioEnt entidad)
@@ -40,21 +47,20 @@ namespace G5_ProgramacionAvanzada.Controllers
             }
 
         }
-
+        //-------------------------------------------------------------------
         [HttpGet]
         public ActionResult RegistrarCuenta()
         {
             return View();
         }
-
         [HttpPost]
         public ActionResult RegistrarCuenta(UsuarioEnt entidad)
         {
-            entidad.Estado = true;
-            entidad.Rol = "Cliente";
+            entidad.estado = true;
+            entidad.IDRol = 2;
             string respuesta = modelUsuario.RegistrarCuenta(entidad);
 
-            if (respuesta == "OK")
+            if (respuesta == "ok")
             {
                 return RedirectToAction("IniciarSesion", "Login");
             }
@@ -63,18 +69,19 @@ namespace G5_ProgramacionAvanzada.Controllers
                 ViewBag.MensajeUsuario = "No se ha podido registrar su informacion";
                 return View();
             }
-            
         }
+        //-------------------------------------------------------------------
         [HttpGet]
         public ActionResult RecuperarCuenta()
         {
             return View();
         }
+        
         [HttpPost]
         public ActionResult RecuperarCuenta(UsuarioEnt entidad)
         {
             string respuesta = modelUsuario.RecuperarCuenta(entidad);
-            if (respuesta == "OK")
+            if (respuesta == "ok")
             {
                 return RedirectToAction("IniciarSesion", "Login");
             }
