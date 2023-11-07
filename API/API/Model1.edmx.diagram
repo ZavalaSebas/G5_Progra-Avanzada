@@ -4,24 +4,24 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="7d4a1e9a3590439e8854cbf3932248ad" Name="Diagram1">
+      <Diagram DiagramId="e8a878f7bcd0476e8a2038837999cb56" Name="Diagram1">
         <EntityTypeShape EntityType="ProyectoBDModel.amenidades" Width="1.5" PointX="5.75" PointY="6.5" IsExpanded="true" />
         <EntityTypeShape EntityType="ProyectoBDModel.carro" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ProyectoBDModel.destino" Width="1.5" PointX="3" PointY="5.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ProyectoBDModel.hoteles" Width="1.5" PointX="8" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoBDModel.Paises" Width="1.5" PointX="5.75" PointY="9.625" IsExpanded="true" />
         <EntityTypeShape EntityType="ProyectoBDModel.reserva" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="ProyectoBDModel.reservaCarro" Width="1.5" PointX="7.5" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="ProyectoBDModel.reservaHotel" Width="1.5" PointX="7.5" PointY="3.375" IsExpanded="true" />
         <EntityTypeShape EntityType="ProyectoBDModel.rol" Width="1.5" PointX="0.75" PointY="2.25" IsExpanded="true" />
         <EntityTypeShape EntityType="ProyectoBDModel.usuarios" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
-        <AssociationConnector Association="ProyectoBDModel.FK__hoteles__IdAmeni__4E88ABD4" ManuallyRouted="false" />
-        <AssociationConnector Association="ProyectoBDModel.FK__reserva__IDDesti__412EB0B6" ManuallyRouted="false" />
-        <AssociationConnector Association="ProyectoBDModel.FK__reserva__IDUser__403A8C7D" ManuallyRouted="false" />
-        <AssociationConnector Association="ProyectoBDModel.FK__reservaCa__IDRes__440B1D61" ManuallyRouted="false" />
-        <AssociationConnector Association="ProyectoBDModel.FK__reservaHo__IDRes__46E78A0C" ManuallyRouted="false" />
-        <AssociationConnector Association="ProyectoBDModel.FK__usuarios__IDRol__3B75D760" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="ProyectoBDModel.Paises" Width="1.5" PointX="0.75" PointY="9.875" />
-        <AssociationConnector Association="ProyectoBDModel.FK__hoteles__Pais__0C85DE4D" />
+        <AssociationConnector Association="ProyectoBDModel.FK__hoteles__IdAmeni__0B91BA14" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoBDModel.FK__reserva__IDDesti__7C4F7684" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoBDModel.FK__hoteles__Pais__0C85DE4D" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoBDModel.FK__reserva__IDUser__7B5B524B" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoBDModel.FK__reservaCa__IDRes__7F2BE32F" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoBDModel.FK__reservaHo__IDRes__02084FDA" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoBDModel.FK__usuarios__IDRol__619B8048" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

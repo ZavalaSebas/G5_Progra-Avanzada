@@ -13,10 +13,10 @@ namespace API
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ProyectoBDEntities : DbContext
+    public partial class ProyectoBDEntities1 : DbContext
     {
-        public ProyectoBDEntities()
-            : base("name=ProyectoBDEntities")
+        public ProyectoBDEntities1()
+            : base("name=ProyectoBDEntities1")
         {
         }
     
@@ -29,11 +29,11 @@ namespace API
         public virtual DbSet<carro> carro { get; set; }
         public virtual DbSet<destino> destino { get; set; }
         public virtual DbSet<hoteles> hoteles { get; set; }
+        public virtual DbSet<Paises> Paises { get; set; }
         public virtual DbSet<reserva> reserva { get; set; }
         public virtual DbSet<reservaCarro> reservaCarro { get; set; }
         public virtual DbSet<reservaHotel> reservaHotel { get; set; }
         public virtual DbSet<rol> rol { get; set; }
         public virtual DbSet<usuarios> usuarios { get; set; }
-        public virtual DbSet<Paises> Paises { get; set; }
     }
 }

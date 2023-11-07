@@ -17,13 +17,12 @@ namespace API
         public int ID { get; set; }
         public string nombre { get; set; }
         public string direccion { get; set; }
-        public string pais { get; set; }
         public decimal puntuacion { get; set; }
         public string descripcion { get; set; }
         public decimal precio { get; set; }
         public string imagen { get; set; }
-        public Nullable<int> IdAmenidades { get; set; }
         public Nullable<int> Pais { get; set; }
+        public Nullable<int> IdAmenidades { get; set; }
     
         public virtual amenidades amenidades { get; set; }
         public virtual Paises Paises { get; set; }

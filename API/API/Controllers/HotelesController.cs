@@ -16,14 +16,14 @@ namespace API.Controllers
         [Route("AnadirHotel")]
         public string AnadirHotel(HotelesEnt entidad)
         {
-            using (var context = new ProyectoBDEntities())
+            using (var context = new ProyectoBDEntities1())
             {
                 try
                 {
                     hoteles hotel = new hoteles();
                     hotel.nombre = entidad.nombre;
                     hotel.direccion = entidad.direccion;
-                    hotel.pais = entidad.pais;
+                    hotel.Pais = entidad.IDPais;
                     hotel.puntuacion = entidad.puntuacion;
                     hotel.descripcion = entidad.descripcion;
                     hotel.precio = entidad.precio;
@@ -51,7 +51,7 @@ namespace API.Controllers
         {
             try
             {
-                using (var context = new ProyectoBDEntities())
+                using (var context = new ProyectoBDEntities1())
                 {
                     context.Configuration.LazyLoadingEnabled = false;
                     var datos = (from hoteles in context.hoteles
@@ -59,13 +59,13 @@ namespace API.Controllers
                                  select new HotelesEnt
                                  {
                                      nombre = hoteles.nombre,
-                                     pais = hoteles.pais,
                                      direccion = hoteles.direccion,
                                      puntuacion = hoteles.puntuacion,
                                      descripcion = hoteles.descripcion,
                                      precio = hoteles.precio,
                                      imagen = hoteles.imagen,
-                                     IdAmenidades = amenidades.IDAmenidades
+                                     IdAmenidades = amenidades.IDAmenidades,
+                                     IDPais = (int)hoteles.Pais
                                  }).ToList();
 
                     return datos;
@@ -87,7 +87,7 @@ namespace API.Controllers
         {
             try
             {
-                using (var context = new ProyectoBDEntities())
+                using (var context = new ProyectoBDEntities1())
                 {
                     var datos = (from x in context.amenidades
                                  select x).ToList();
@@ -112,11 +112,11 @@ namespace API.Controllers
         //-------------------------------------------------------------------
         [HttpGet]
         [Route("Paises")]
-        public List<System.Web.Mvc.SelectListItem>Paises()
+        public List<System.Web.Mvc.SelectListItem> Paises()
         {
             try
             {
-                using (var context = new ProyectoBDEntities())
+                using (var context = new ProyectoBDEntities1())
                 {
                     var datos = (from x in context.Paises
                                  select x).ToList();
