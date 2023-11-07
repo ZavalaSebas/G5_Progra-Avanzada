@@ -18,7 +18,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="marca" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="modelo" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="annio" Type="int" Nullable="false" />
@@ -30,7 +30,7 @@
           <Key>
             <PropertyRef Name="IDDestino" />
           </Key>
-          <Property Name="IDDestino" Type="bigint" Nullable="false" />
+          <Property Name="IDDestino" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nombre" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="pais" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="descripcion" Type="varchar" MaxLength="255" Nullable="false" />
@@ -55,7 +55,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TIPO" Type="int" Nullable="false" />
           <Property Name="IDUser" Type="bigint" Nullable="false" />
           <Property Name="IDDestino" Type="bigint" Nullable="false" />
@@ -96,7 +96,7 @@
           <Property Name="estado" Type="bit" Nullable="false" />
           <Property Name="IDRol" Type="bigint" />
         </EntityType>
-        <Association Name="FK__hoteles__IdAmeni__4E88ABD4">
+        <Association Name="FK__hoteles__IdAmeni__6E01572D">
           <End Role="amenidades" Type="Self.amenidades" Multiplicity="0..1" />
           <End Role="hoteles" Type="Self.hoteles" Multiplicity="*" />
           <ReferentialConstraint>
@@ -108,7 +108,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__reserva__IDDesti__656C112C">
+        <Association Name="FK__reserva__IDDesti__7C4F7684">
           <End Role="destino" Type="Self.destino" Multiplicity="1" />
           <End Role="reserva" Type="Self.reserva" Multiplicity="*" />
           <ReferentialConstraint>
@@ -120,7 +120,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__reserva__IDUser__6477ECF3">
+        <Association Name="FK__reserva__IDUser__7B5B524B">
           <End Role="usuarios" Type="Self.usuarios" Multiplicity="1" />
           <End Role="reserva" Type="Self.reserva" Multiplicity="*" />
           <ReferentialConstraint>
@@ -132,7 +132,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__reservaCa__IDRes__68487DD7">
+        <Association Name="FK__reservaCa__IDRes__7F2BE32F">
           <End Role="reserva" Type="Self.reserva" Multiplicity="1" />
           <End Role="reservaCarro" Type="Self.reservaCarro" Multiplicity="*" />
           <ReferentialConstraint>
@@ -144,7 +144,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__reservaHo__IDRes__6B24EA82">
+        <Association Name="FK__reservaHo__IDRes__02084FDA">
           <End Role="reserva" Type="Self.reserva" Multiplicity="1" />
           <End Role="reservaHotel" Type="Self.reservaHotel" Multiplicity="*" />
           <ReferentialConstraint>
@@ -178,23 +178,23 @@
           <EntitySet Name="reservaHotel" EntityType="Self.reservaHotel" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="rol" EntityType="Self.rol" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="usuarios" EntityType="Self.usuarios" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__hoteles__IdAmeni__4E88ABD4" Association="Self.FK__hoteles__IdAmeni__4E88ABD4">
+          <AssociationSet Name="FK__hoteles__IdAmeni__6E01572D" Association="Self.FK__hoteles__IdAmeni__6E01572D">
             <End Role="amenidades" EntitySet="amenidades" />
             <End Role="hoteles" EntitySet="hoteles" />
           </AssociationSet>
-          <AssociationSet Name="FK__reserva__IDDesti__656C112C" Association="Self.FK__reserva__IDDesti__656C112C">
+          <AssociationSet Name="FK__reserva__IDDesti__7C4F7684" Association="Self.FK__reserva__IDDesti__7C4F7684">
             <End Role="destino" EntitySet="destino" />
             <End Role="reserva" EntitySet="reserva" />
           </AssociationSet>
-          <AssociationSet Name="FK__reserva__IDUser__6477ECF3" Association="Self.FK__reserva__IDUser__6477ECF3">
+          <AssociationSet Name="FK__reserva__IDUser__7B5B524B" Association="Self.FK__reserva__IDUser__7B5B524B">
             <End Role="usuarios" EntitySet="usuarios" />
             <End Role="reserva" EntitySet="reserva" />
           </AssociationSet>
-          <AssociationSet Name="FK__reservaCa__IDRes__68487DD7" Association="Self.FK__reservaCa__IDRes__68487DD7">
+          <AssociationSet Name="FK__reservaCa__IDRes__7F2BE32F" Association="Self.FK__reservaCa__IDRes__7F2BE32F">
             <End Role="reserva" EntitySet="reserva" />
             <End Role="reservaCarro" EntitySet="reservaCarro" />
           </AssociationSet>
-          <AssociationSet Name="FK__reservaHo__IDRes__6B24EA82" Association="Self.FK__reservaHo__IDRes__6B24EA82">
+          <AssociationSet Name="FK__reservaHo__IDRes__02084FDA" Association="Self.FK__reservaHo__IDRes__02084FDA">
             <End Role="reserva" EntitySet="reserva" />
             <End Role="reservaHotel" EntitySet="reservaHotel" />
           </AssociationSet>

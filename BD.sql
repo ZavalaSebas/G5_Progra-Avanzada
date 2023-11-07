@@ -30,7 +30,7 @@ CREATE TABLE usuarios (
 
 -- Crear la tabla 'destino'
 CREATE TABLE destino (
-    IDDestino BIGINT PRIMARY KEY,
+    IDDestino BIGINT IDENTITY(1,1) PRIMARY KEY,
     nombre VARCHAR(255) NOT NULL,
     pais VARCHAR(255) NOT NULL,
     descripcion VARCHAR(255) NOT NULL,
@@ -40,7 +40,7 @@ CREATE TABLE destino (
 
 -- Crear la tabla 'reserva'
 CREATE TABLE reserva (
-    ID BIGINT PRIMARY KEY,
+    ID BIGINT IDENTITY(1,1) PRIMARY KEY,
     TIPO INT NOT NULL,
     IDUser BIGINT NOT NULL,
     IDDestino BIGINT NOT NULL,
@@ -66,7 +66,7 @@ CREATE TABLE reservaHotel (
 
 -- Crear la tabla 'carro'
 CREATE TABLE carro (
-    ID BIGINT PRIMARY KEY NOT NULL,
+    ID BIGINT IDENTITY(1,1) PRIMARY KEY,
     marca VARCHAR(255) NOT NULL,
     modelo VARCHAR(255) NOT NULL,
     annio INT NOT NULL,
@@ -77,7 +77,7 @@ CREATE TABLE carro (
 
 -- Crear la tabla 'amenidades'
 CREATE TABLE amenidades (
-    IDAmenidades INT PRIMARY KEY,
+    IDAmenidades BIGINT PRIMARY KEY,
     nombre VARCHAR(255) NOT NULL,
     descripcion VARCHAR(255) NOT NULL,
 	icono varchar(100) DEFAULT NULL
@@ -123,3 +123,5 @@ CREATE TABLE hoteles (
 select * from usuarios
 
 select * from hoteles
+
+
