@@ -12,6 +12,8 @@ namespace G5_ProgramacionAvanzada.Entities
         public decimal precio { get; set; }
         public string imagen { get; set; }
         public int IdAmenidades { get; set; }
+        public int IDPais { get; set; }
+
 
     }
 }

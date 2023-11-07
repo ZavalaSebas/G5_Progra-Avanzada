@@ -109,6 +109,34 @@ namespace API.Controllers
                 return null;
             }
         }
+        //-------------------------------------------------------------------
+        [HttpGet]
+        [Route("Paises")]
+        public List<System.Web.Mvc.SelectListItem>Paises()
+        {
+            try
+            {
+                using (var context = new ProyectoBDEntities())
+                {
+                    var datos = (from x in context.Paises
+                                 select x).ToList();
 
+                    var result = new List<System.Web.Mvc.SelectListItem>();
+                    foreach (var item in datos)
+                    {
+                        result.Add(new System.Web.Mvc.SelectListItem
+                        {
+                            Value = item.IDPais.ToString(),
+                            Text = item.Nombre
+                        });
+                    }
+                    return result;
+                }
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
     }
 }

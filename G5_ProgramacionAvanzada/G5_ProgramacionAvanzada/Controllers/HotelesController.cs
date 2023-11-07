@@ -64,5 +64,12 @@ namespace G5_ProgramacionAvanzada.Controllers
             var datos = MH.Amenidades();
             return View(datos);
         }
+        //-------------------------------------------------------------------
+
+        public ActionResult Paises()
+        {
+            var datos = MH.Paises();
+            return View(datos);
+        }
     }
 }
