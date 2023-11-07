@@ -34,5 +34,6 @@ namespace API
         public virtual DbSet<reservaHotel> reservaHotel { get; set; }
         public virtual DbSet<rol> rol { get; set; }
         public virtual DbSet<usuarios> usuarios { get; set; }
+        public virtual DbSet<Paises> Paises { get; set; }
     }
 }

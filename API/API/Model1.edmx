@@ -44,12 +44,20 @@
           <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="nombre" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="direccion" Type="varchar" MaxLength="255" Nullable="false" />
-          <Property Name="pais" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="puntuacion" Type="decimal" Precision="3" Scale="2" Nullable="false" />
           <Property Name="descripcion" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="precio" Type="money" Nullable="false" />
           <Property Name="imagen" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Pais" Type="int" />
           <Property Name="IdAmenidades" Type="int" />
+        </EntityType>
+        <EntityType Name="Paises">
+          <Key>
+            <PropertyRef Name="IDPais" />
+          </Key>
+          <Property Name="IDPais" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" />
+          <Property Name="Codigo" Type="char" MaxLength="3" />
         </EntityType>
         <EntityType Name="reserva">
           <Key>
@@ -96,7 +104,7 @@
           <Property Name="estado" Type="bit" Nullable="false" />
           <Property Name="IDRol" Type="bigint" />
         </EntityType>
-        <Association Name="FK__hoteles__IdAmeni__6E01572D">
+        <Association Name="FK__hoteles__IdAmeni__0B91BA14">
           <End Role="amenidades" Type="Self.amenidades" Multiplicity="0..1" />
           <End Role="hoteles" Type="Self.hoteles" Multiplicity="*" />
           <ReferentialConstraint>
@@ -105,6 +113,18 @@
             </Principal>
             <Dependent Role="hoteles">
               <PropertyRef Name="IdAmenidades" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__hoteles__Pais__0C85DE4D">
+          <End Role="Paises" Type="Self.Paises" Multiplicity="0..1" />
+          <End Role="hoteles" Type="Self.hoteles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Paises">
+              <PropertyRef Name="IDPais" />
+            </Principal>
+            <Dependent Role="hoteles">
+              <PropertyRef Name="Pais" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -173,13 +193,18 @@
           <EntitySet Name="carro" EntityType="Self.carro" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="destino" EntityType="Self.destino" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="hoteles" EntityType="Self.hoteles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Paises" EntityType="Self.Paises" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="reserva" EntityType="Self.reserva" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="reservaCarro" EntityType="Self.reservaCarro" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="reservaHotel" EntityType="Self.reservaHotel" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="rol" EntityType="Self.rol" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="usuarios" EntityType="Self.usuarios" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__hoteles__IdAmeni__6E01572D" Association="Self.FK__hoteles__IdAmeni__6E01572D">
+          <AssociationSet Name="FK__hoteles__IdAmeni__0B91BA14" Association="Self.FK__hoteles__IdAmeni__0B91BA14">
             <End Role="amenidades" EntitySet="amenidades" />
+            <End Role="hoteles" EntitySet="hoteles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__hoteles__Pais__0C85DE4D" Association="Self.FK__hoteles__Pais__0C85DE4D">
+            <End Role="Paises" EntitySet="Paises" />
             <End Role="hoteles" EntitySet="hoteles" />
           </AssociationSet>
           <AssociationSet Name="FK__reserva__IDDesti__7C4F7684" Association="Self.FK__reserva__IDDesti__7C4F7684">
@@ -255,6 +280,8 @@
           <Property Name="imagen" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="IdAmenidades" Type="Int32" />
           <NavigationProperty Name="amenidades" Relationship="Self.FK__hoteles__IdAmeni__4E88ABD4" FromRole="hoteles" ToRole="amenidades" />
+          <Property Name="Pais" Type="Int32" />
+          <NavigationProperty Name="Paises" Relationship="ProyectoBDModel.FK__hoteles__Pais__0C85DE4D" FromRole="hoteles" ToRole="Paises" />
         </EntityType>
         <EntityType Name="reserva">
           <Key>
@@ -416,7 +443,33 @@
             <End Role="rol" EntitySet="rol" />
             <End Role="usuarios" EntitySet="usuarios" />
           </AssociationSet>
+          <EntitySet Name="Paises" EntityType="ProyectoBDModel.Paises" />
+          <AssociationSet Name="FK__hoteles__Pais__0C85DE4D" Association="ProyectoBDModel.FK__hoteles__Pais__0C85DE4D">
+            <End Role="Paises" EntitySet="Paises" />
+            <End Role="hoteles" EntitySet="hoteles" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Paises">
+          <Key>
+            <PropertyRef Name="IDPais" />
+          </Key>
+          <Property Name="IDPais" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Codigo" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="hoteles" Relationship="ProyectoBDModel.FK__hoteles__Pais__0C85DE4D" FromRole="Paises" ToRole="hoteles" />
+        </EntityType>
+        <Association Name="FK__hoteles__Pais__0C85DE4D">
+          <End Type="ProyectoBDModel.Paises" Role="Paises" Multiplicity="0..1" />
+          <End Type="ProyectoBDModel.hoteles" Role="hoteles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Paises">
+              <PropertyRef Name="IDPais" />
+            </Principal>
+            <Dependent Role="hoteles">
+              <PropertyRef Name="Pais" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -461,10 +514,10 @@
           <EntitySetMapping Name="hoteles">
             <EntityTypeMapping TypeName="ProyectoBDModel.hoteles">
               <MappingFragment StoreEntitySet="hoteles">
+                <ScalarProperty Name="Pais" ColumnName="Pais" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="direccion" ColumnName="direccion" />
-                <ScalarProperty Name="pais" ColumnName="pais" />
                 <ScalarProperty Name="puntuacion" ColumnName="puntuacion" />
                 <ScalarProperty Name="descripcion" ColumnName="descripcion" />
                 <ScalarProperty Name="precio" ColumnName="precio" />
@@ -520,6 +573,15 @@
                 <ScalarProperty Name="contrasenna" ColumnName="contrasenna" />
                 <ScalarProperty Name="estado" ColumnName="estado" />
                 <ScalarProperty Name="IDRol" ColumnName="IDRol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Paises">
+            <EntityTypeMapping TypeName="ProyectoBDModel.Paises">
+              <MappingFragment StoreEntitySet="Paises">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IDPais" ColumnName="IDPais" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

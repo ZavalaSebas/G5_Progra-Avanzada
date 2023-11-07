@@ -23,7 +23,9 @@ namespace API
         public decimal precio { get; set; }
         public string imagen { get; set; }
         public Nullable<int> IdAmenidades { get; set; }
+        public Nullable<int> Pais { get; set; }
     
         public virtual amenidades amenidades { get; set; }
+        public virtual Paises Paises { get; set; }
     }
 }

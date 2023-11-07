@@ -20,6 +20,8 @@
         <AssociationConnector Association="ProyectoBDModel.FK__reservaCa__IDRes__440B1D61" ManuallyRouted="false" />
         <AssociationConnector Association="ProyectoBDModel.FK__reservaHo__IDRes__46E78A0C" ManuallyRouted="false" />
         <AssociationConnector Association="ProyectoBDModel.FK__usuarios__IDRol__3B75D760" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ProyectoBDModel.Paises" Width="1.5" PointX="0.75" PointY="9.875" />
+        <AssociationConnector Association="ProyectoBDModel.FK__hoteles__Pais__0C85DE4D" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
