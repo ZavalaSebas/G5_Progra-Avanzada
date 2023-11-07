@@ -17,6 +17,7 @@ namespace G5_ProgramacionAvanzada.Controllers
         public ActionResult AnadirHotel()
         {
             ViewBag.Amenidades = MH.Amenidades();
+            ViewBag.Paises = MH.Paises();
             return View();
         }
 

@@ -153,7 +153,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HotelesController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Entities\AmenidadesEnt.cs" />
     <Compile Include="Entities\HotelesEnt.cs" />
+    <Compile Include="Entities\PaisesEnt.cs" />
     <Compile Include="Entities\UsuarioEnt.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
