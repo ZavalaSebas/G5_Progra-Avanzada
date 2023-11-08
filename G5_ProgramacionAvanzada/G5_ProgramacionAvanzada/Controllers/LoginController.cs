@@ -56,8 +56,8 @@ namespace G5_ProgramacionAvanzada.Controllers
         [HttpPost]
         public ActionResult RegistrarCuenta(UsuarioEnt entidad)
         {
-            entidad.estado = true;
-            entidad.IDRol = 2;
+            entidad.IdEstado = 2;
+            entidad.IdRol = 2;
             string respuesta = modelUsuario.RegistrarCuenta(entidad);
 
             if (respuesta == "ok")

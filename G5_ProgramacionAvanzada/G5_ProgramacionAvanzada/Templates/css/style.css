@@ -2189,9 +2189,12 @@ font-weight: 500;
 .navbar_color_black .topbar-area {
     border-bottom: 1px solid #63616121;
 }
-#home_four_banner{
-    background-color: #f4f6fc;
-    padding: 220px 0;
+#home_four_banner {
+    background-image: url(../img/banner/banner-two-bg-3.png);
+    padding: 325px 0 340px 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 }
 .banner_four_img{
     position: absolute;

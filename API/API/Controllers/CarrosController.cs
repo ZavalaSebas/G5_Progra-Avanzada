@@ -59,7 +59,7 @@ namespace API.Controllers
                                      marca = carros.marca,
                                      modelo = carros.modelo,
                                      annio = carros.annio,
-                                     precio = carros.precio,
+                                     precio = (decimal)carros.precio,
                                      imagen = carros.imagen,
                                      IdEstado = estado.ID,
                                      IdPais = paises.ID
