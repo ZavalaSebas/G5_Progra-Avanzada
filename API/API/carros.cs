@@ -12,14 +12,26 @@ namespace API
     using System;
     using System.Collections.Generic;
     
-    public partial class carro
+    public partial class carros
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public carros()
+        {
+            this.reservaCarros = new HashSet<reservaCarros>();
+        }
+    
         public long ID { get; set; }
         public string marca { get; set; }
         public string modelo { get; set; }
         public int annio { get; set; }
         public string imagen { get; set; }
         public Nullable<decimal> precio { get; set; }
-        public Nullable<bool> disponibilidad { get; set; }
+        public Nullable<int> IdEstado { get; set; }
+        public Nullable<int> IdPais { get; set; }
+    
+        public virtual estado estado { get; set; }
+        public virtual paises paises { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<reservaCarros> reservaCarros { get; set; }
     }
 }

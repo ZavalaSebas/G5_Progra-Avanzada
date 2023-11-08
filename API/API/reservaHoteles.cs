@@ -12,11 +12,12 @@ namespace API
     using System;
     using System.Collections.Generic;
     
-    public partial class reservaCarro
+    public partial class reservaHoteles
     {
-        public long IDCarro { get; set; }
-        public long IDReserva { get; set; }
+        public long ID { get; set; }
+        public long IdHotel { get; set; }
+        public System.DateTime Fecha { get; set; }
     
-        public virtual reserva reserva { get; set; }
+        public virtual hoteles hoteles { get; set; }
     }
 }

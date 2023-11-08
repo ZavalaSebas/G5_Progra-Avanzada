@@ -26,14 +26,19 @@ namespace API
         }
     
         public virtual DbSet<amenidades> amenidades { get; set; }
-        public virtual DbSet<carro> carro { get; set; }
+        public virtual DbSet<carros> carros { get; set; }
         public virtual DbSet<destino> destino { get; set; }
+        public virtual DbSet<estado> estado { get; set; }
         public virtual DbSet<hoteles> hoteles { get; set; }
-        public virtual DbSet<Paises> Paises { get; set; }
-        public virtual DbSet<reserva> reserva { get; set; }
-        public virtual DbSet<reservaCarro> reservaCarro { get; set; }
-        public virtual DbSet<reservaHotel> reservaHotel { get; set; }
+        public virtual DbSet<paises> paises { get; set; }
+        public virtual DbSet<resennas> resennas { get; set; }
+        public virtual DbSet<reservaCarros> reservaCarros { get; set; }
+        public virtual DbSet<reservaHoteles> reservaHoteles { get; set; }
+        public virtual DbSet<reservaTours> reservaTours { get; set; }
+        public virtual DbSet<reservaVuelos> reservaVuelos { get; set; }
         public virtual DbSet<rol> rol { get; set; }
+        public virtual DbSet<tours> tours { get; set; }
         public virtual DbSet<usuarios> usuarios { get; set; }
+        public virtual DbSet<vuelos> vuelos { get; set; }
     }
 }

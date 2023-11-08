@@ -12,27 +12,27 @@ namespace API
     using System;
     using System.Collections.Generic;
     
-    public partial class reserva
+    public partial class tours
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public reserva()
+        public tours()
         {
-            this.reservaCarro = new HashSet<reservaCarro>();
-            this.reservaHotel = new HashSet<reservaHotel>();
+            this.reservaTours = new HashSet<reservaTours>();
         }
     
         public long ID { get; set; }
-        public int TIPO { get; set; }
-        public long IDUser { get; set; }
-        public long IDDestino { get; set; }
-        public System.DateTime salida { get; set; }
-        public System.DateTime entrada { get; set; }
+        public string nombre { get; set; }
+        public string descripcion { get; set; }
+        public string imagen { get; set; }
+        public Nullable<decimal> precio { get; set; }
+        public Nullable<int> IdEstado { get; set; }
+        public Nullable<int> IdPais { get; set; }
+        public Nullable<long> IdDestino { get; set; }
     
         public virtual destino destino { get; set; }
-        public virtual usuarios usuarios { get; set; }
+        public virtual estado estado { get; set; }
+        public virtual paises paises { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<reservaCarro> reservaCarro { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<reservaHotel> reservaHotel { get; set; }
+        public virtual ICollection<reservaTours> reservaTours { get; set; }
     }
 }

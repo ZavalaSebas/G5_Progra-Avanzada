@@ -17,20 +17,21 @@ namespace API
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public usuarios()
         {
-            this.reserva = new HashSet<reserva>();
+            this.resennas = new HashSet<resennas>();
         }
     
-        public long IDUser { get; set; }
+        public long ID { get; set; }
         public string username { get; set; }
         public string nombre { get; set; }
         public string apellidos { get; set; }
         public string email { get; set; }
         public string contrasenna { get; set; }
-        public bool estado { get; set; }
-        public Nullable<long> IDRol { get; set; }
+        public Nullable<int> IdEstado { get; set; }
+        public Nullable<int> IdRol { get; set; }
     
+        public virtual estado estado { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<reserva> reserva { get; set; }
+        public virtual ICollection<resennas> resennas { get; set; }
         public virtual rol rol { get; set; }
     }
 }

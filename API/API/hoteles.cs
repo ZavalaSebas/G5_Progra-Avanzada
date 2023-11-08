@@ -14,17 +14,29 @@ namespace API
     
     public partial class hoteles
     {
-        public int ID { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public hoteles()
+        {
+            this.resennas = new HashSet<resennas>();
+            this.reservaHoteles = new HashSet<reservaHoteles>();
+        }
+    
+        public long ID { get; set; }
         public string nombre { get; set; }
         public string direccion { get; set; }
-        public decimal puntuacion { get; set; }
         public string descripcion { get; set; }
         public decimal precio { get; set; }
         public string imagen { get; set; }
-        public Nullable<int> Pais { get; set; }
+        public Nullable<int> IdPais { get; set; }
         public Nullable<int> IdAmenidades { get; set; }
+        public Nullable<int> IdEstado { get; set; }
     
         public virtual amenidades amenidades { get; set; }
-        public virtual Paises Paises { get; set; }
+        public virtual estado estado { get; set; }
+        public virtual paises paises { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<resennas> resennas { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<reservaHoteles> reservaHoteles { get; set; }
     }
 }

@@ -12,18 +12,23 @@ namespace API
     using System;
     using System.Collections.Generic;
     
-    public partial class rol
+    public partial class vuelos
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public rol()
+        public vuelos()
         {
-            this.usuarios = new HashSet<usuarios>();
+            this.reservaVuelos = new HashSet<reservaVuelos>();
         }
     
-        public int ID { get; set; }
-        public string nombre { get; set; }
+        public long ID { get; set; }
+        public System.DateTime Fecha { get; set; }
+        public Nullable<decimal> precio { get; set; }
+        public Nullable<int> IdEstado { get; set; }
+        public Nullable<int> IdPais { get; set; }
     
+        public virtual estado estado { get; set; }
+        public virtual paises paises { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<usuarios> usuarios { get; set; }
+        public virtual ICollection<reservaVuelos> reservaVuelos { get; set; }
     }
 }

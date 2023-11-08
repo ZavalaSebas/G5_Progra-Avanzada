@@ -17,17 +17,19 @@ namespace API
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public destino()
         {
-            this.reserva = new HashSet<reserva>();
+            this.tours = new HashSet<tours>();
         }
     
-        public long IDDestino { get; set; }
+        public long ID { get; set; }
         public string nombre { get; set; }
         public string pais { get; set; }
         public string descripcion { get; set; }
         public Nullable<decimal> precio { get; set; }
         public string imagen { get; set; }
+        public Nullable<int> IdEstado { get; set; }
     
+        public virtual estado estado { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<reserva> reserva { get; set; }
+        public virtual ICollection<tours> tours { get; set; }
     }
 }

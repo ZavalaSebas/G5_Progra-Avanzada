@@ -5,116 +5,26 @@ use ProyectoBD;
 
 -- Crear la tabla 'rol'
 CREATE TABLE rol (
-    ID BIGINT PRIMARY KEY,
-    nombre VARCHAR(25) NOT NULL
-);
+    ID INT PRIMARY KEY,
+    nombre VARCHAR(25) NOT NULL);
+
+	-- Insert a la tabla 'rol'
 
 insert into rol (ID, nombre)
 VALUES  
 (1, 'Administrador'),
 (2, 'Usuario');
 
--- Crear la tabla 'usuarios'
-CREATE TABLE usuarios (
-    IDUser BIGINT IDENTITY(1,1) PRIMARY KEY,
-    username VARCHAR(10) NOT NULL,
-    nombre VARCHAR(25) NOT NULL,
-    apellidos VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL,
-    contrasenna VARCHAR(12) NOT NULL,
-	estado BIT DEFAULT 1 NOT NULL,
-    IDRol BIGINT DEFAULT 2,
-    FOREIGN KEY (IDRol) REFERENCES rol(ID)
-);
+	-- Crear la tabla 'paises'
 
+CREATE TABLE paises(
+    ID INT PRIMARY KEY,
+    Nombre VARCHAR(50),
+    Codigo CHAR(3));
 
--- Crear la tabla 'destino'
-CREATE TABLE destino (
-    IDDestino BIGINT IDENTITY(1,1) PRIMARY KEY,
-    nombre VARCHAR(255) NOT NULL,
-    pais VARCHAR(255) NOT NULL,
-    descripcion VARCHAR(255) NOT NULL,
-    precio MONEY,
-    imagen VARCHAR(255)
-);
+	-- Insert a la tabla 'paises'
 
--- Crear la tabla 'reserva'
-CREATE TABLE reserva (
-    ID BIGINT IDENTITY(1,1) PRIMARY KEY,
-    TIPO INT NOT NULL,
-    IDUser BIGINT NOT NULL,
-    IDDestino BIGINT NOT NULL,
-    salida DATE NOT NULL,
-    entrada DATE NOT NULL,
-    FOREIGN KEY (IDUser) REFERENCES usuarios(IDUser),
-    FOREIGN KEY (IDDestino) REFERENCES destino(IDDestino)
-);
-
--- Crear la tabla 'reservaCarro'
-CREATE TABLE reservaCarro (
-    IDCarro BIGINT PRIMARY KEY NOT NULL,
-    IDReserva BIGINT NOT NULL,
-    FOREIGN KEY (IDReserva) REFERENCES reserva(ID)
-);
-
--- Crear la tabla 'reservaHotel'
-CREATE TABLE reservaHotel (
-    IDHotel BIGINT PRIMARY KEY NOT NULL,
-    IDReserva BIGINT NOT NULL,
-    FOREIGN KEY (IDReserva) REFERENCES reserva(ID)
-);
-
--- Crear la tabla 'carro'
-CREATE TABLE carro (
-    ID BIGINT IDENTITY(1,1) PRIMARY KEY,
-    marca VARCHAR(255) NOT NULL,
-    modelo VARCHAR(255) NOT NULL,
-    annio INT NOT NULL,
-    imagen VARCHAR(255),
-    precio MONEY,
-    disponibilidad BIT
-);
-
--- Crear la tabla 'amenidades'
-CREATE TABLE amenidades (
-    IDAmenidades BIGINT PRIMARY KEY,
-    nombre VARCHAR(255) NOT NULL,
-    descripcion VARCHAR(255) NOT NULL,
-	icono varchar(100) DEFAULT NULL
-);
-
--- Inserts de la tabla 'amenidades'
-
-INSERT INTO amenidades (IDAmenidades, nombre, descripcion, icono) 
-VALUES
-    (1, 'Casa completa', 'Toda la propiedad está disponible para los huéspedes', 'casa-icono'),
-    (2, 'Tamaño de 140 m²', 'Superficie de 140 metros cuadrados', 'tamaño-icono'),
-    (3, 'Cocina', 'Cocina equipada para preparar alimentos', 'cocina-icono'),
-    (4, 'Vista', 'Vistas escénicas o panorámicas', 'vista-icono'),
-    (5, 'Jardín', 'Espacio al aire libre con jardín', 'jardin-icono'),
-    (6, 'Piscina al aire libre', 'Piscina ubicada al aire libre', 'piscina-icono'),
-    (7, 'Instalaciones para barbacoa', 'Área habilitada para hacer barbacoas', 'bbq-icono'),
-    (8, 'Lavadora', 'Lavadora disponible para uso de los huéspedes', 'lavadora-icono'),
-    (9, 'WiFi gratuito', 'Acceso gratuito a Internet inalámbrico', 'wifi-icono'),
-    (10, 'Terraza', 'Espacio al aire libre para relajarse', 'terraza-icono'),
-    (11, 'Aire acondicionado', 'Propiedad con sistema de aire acondicionado', 'aire-icono'),
-    (12, 'TV de pantalla plana', 'Televisor con pantalla plana y variedad de canales', 'tv-icono'),
-    (13, 'Estacionamiento gratuito', 'Estacionamiento disponible sin costo adicional', 'parking-icono'),
-    (14, 'Baño privado', 'Habitación con baño exclusivo', 'bano-icono'),
-    (15, 'Desayuno incluido', 'Desayuno proporcionado como parte del hospedaje', 'desayuno-icono'),
-    (16, 'Acceso para personas con movilidad reducida', 'Instalaciones adaptadas para personas con movilidad reducida', 'movilidad-icono'),
-    (17, 'Recepción 24 horas', 'Recepción disponible durante todo el día', 'recepcion-icono');
-
-	-- Crear la tabla 'Paises'
-
-CREATE TABLE Paises
-(
-     IDPais INT PRIMARY KEY,
-    Nombre VARCHAR(50)
-    ,Codigo CHAR(3)    
-);
-
-INSERT INTO Paises (IDPais, Nombre, Codigo) VALUES 
+INSERT INTO paises (ID, Nombre, Codigo) VALUES 
 (1,'Afghanistan','AFG'),
 (2,'Aland Islands','ALA'),
 (3,'Albania','ALB'),
@@ -367,20 +277,178 @@ INSERT INTO Paises (IDPais, Nombre, Codigo) VALUES
 (250,'Zimbabwe','ZWE');
 
 
-	-- Crear la tabla 'hoteles'
-CREATE TABLE hoteles (
+-- Crear la tabla 'amenidades'
+CREATE TABLE amenidades (
     ID INT PRIMARY KEY,
     nombre VARCHAR(255) NOT NULL,
+    descripcion VARCHAR(255) NOT NULL,
+	icono varchar(100) DEFAULT NULL
+);
+
+-- Inserts de la tabla 'amenidades'
+
+INSERT INTO amenidades (ID, nombre, descripcion, icono) 
+VALUES
+    (1, 'Casa completa', 'Toda la propiedad está disponible para los huéspedes', 'casa-icono'),
+    (2, 'Tamaño de 140 m²', 'Superficie de 140 metros cuadrados', 'tamaño-icono'),
+    (3, 'Cocina', 'Cocina equipada para preparar alimentos', 'cocina-icono'),
+    (4, 'Vista', 'Vistas escénicas o panorámicas', 'vista-icono'),
+    (5, 'Jardín', 'Espacio al aire libre con jardín', 'jardin-icono'),
+    (6, 'Piscina al aire libre', 'Piscina ubicada al aire libre', 'piscina-icono'),
+    (7, 'Instalaciones para barbacoa', 'Área habilitada para hacer barbacoas', 'bbq-icono'),
+    (8, 'Lavadora', 'Lavadora disponible para uso de los huéspedes', 'lavadora-icono'),
+    (9, 'WiFi gratuito', 'Acceso gratuito a Internet inalámbrico', 'wifi-icono'),
+    (10, 'Terraza', 'Espacio al aire libre para relajarse', 'terraza-icono'),
+    (11, 'Aire acondicionado', 'Propiedad con sistema de aire acondicionado', 'aire-icono'),
+    (12, 'TV de pantalla plana', 'Televisor con pantalla plana y variedad de canales', 'tv-icono'),
+    (13, 'Estacionamiento gratuito', 'Estacionamiento disponible sin costo adicional', 'parking-icono'),
+    (14, 'Baño privado', 'Habitación con baño exclusivo', 'bano-icono'),
+    (15, 'Desayuno incluido', 'Desayuno proporcionado como parte del hospedaje', 'desayuno-icono'),
+    (16, 'Acceso para personas con movilidad reducida', 'Instalaciones adaptadas para personas con movilidad reducida', 'movilidad-icono'),
+    (17, 'Recepción 24 horas', 'Recepción disponible durante todo el día', 'recepcion-icono');
+
+-- Crear la tabla 'estado'
+CREATE TABLE estado (
+    ID INT PRIMARY KEY,
+    nombre VARCHAR(25) NOT NULL);
+
+-- Insert a la tabla 'estado'
+
+insert into estado (ID, nombre)
+VALUES  
+(0, 'Inactivo'),
+(2, 'Activo'),
+(3, 'Mantenimiento'),
+(4, 'Completado'),
+(5, 'Atrasado');
+
+
+-- Crear la tabla 'usuarios'
+CREATE TABLE usuarios (
+    ID BIGINT IDENTITY(1,1) PRIMARY KEY,
+    username VARCHAR(10) NOT NULL,
+    nombre VARCHAR(25) NOT NULL,
+    apellidos VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    contrasenna VARCHAR(12) NOT NULL,
+	IdEstado INT DEFAULT 1,
+    IdRol INT DEFAULT 2,
+    FOREIGN KEY (IdRol) REFERENCES rol(ID),
+	FOREIGN KEY (IdEstado) REFERENCES estado(ID));
+
+
+-- Crear la tabla 'destino'
+CREATE TABLE destino (
+    ID BIGINT IDENTITY(1,1) PRIMARY KEY,
+    nombre VARCHAR(255) NOT NULL,
+    pais VARCHAR(255) NOT NULL,
+    descripcion VARCHAR(255) NOT NULL,
+    precio MONEY,
+    imagen VARCHAR(255), 
+	IdEstado INT DEFAULT 1,
+	FOREIGN KEY (IdEstado) REFERENCES estado(ID));
+
+		-- Crear la tabla 'hoteles'
+CREATE TABLE hoteles (
+    ID BIGINT IDENTITY(1,1) PRIMARY KEY,
+    nombre VARCHAR(255) NOT NULL,
     direccion VARCHAR(255) NOT NULL,
-    puntuacion DECIMAL(3, 2) NOT NULL,
     descripcion VARCHAR(255) NOT NULL,
     precio MONEY NOT NULL,
     imagen VARCHAR(255) NOT NULL,
-	Pais int,
+	IdPais int,
 	IdAmenidades Int,
-    FOREIGN KEY (IdAmenidades) REFERENCES amenidades(IDAmenidades),
-    FOREIGN KEY (Pais) REFERENCES Paises(IDPais)
+	IdEstado INT DEFAULT 1,
+	FOREIGN KEY (IdEstado) REFERENCES estado(ID),
+    FOREIGN KEY (IdAmenidades) REFERENCES amenidades(ID),
+    FOREIGN KEY (IdPais) REFERENCES Paises(ID));
+
+	-- Crear la tabla 'carro'
+CREATE TABLE carros (
+    ID BIGINT IDENTITY(1,1) PRIMARY KEY,
+    marca VARCHAR(255) NOT NULL,
+    modelo VARCHAR(255) NOT NULL,
+    annio INT NOT NULL,
+    imagen VARCHAR(255),
+    precio MONEY,
+	IdEstado INT DEFAULT 1,
+	IdPais int,
+	FOREIGN KEY (IdEstado) REFERENCES estado(ID),
+	FOREIGN KEY (IdPais) REFERENCES Paises(ID));
+
+		-- Crear la tabla 'vuelos'
+CREATE TABLE vuelos (
+    ID BIGINT IDENTITY(1,1) PRIMARY KEY,
+    Fecha DATE NOT NULL,
+	precio MONEY,
+	IdEstado INT DEFAULT 1,
+	IdPais int,
+	FOREIGN KEY (IdEstado) REFERENCES estado(ID),
+	FOREIGN KEY (IdPais) REFERENCES paises(ID));
+
+		-- Crear la tabla 'tours'
+CREATE TABLE tours (
+    ID BIGINT IDENTITY(1,1) PRIMARY KEY,
+    nombre VARCHAR(255) NOT NULL,
+	descripcion VARCHAR(255) NOT NULL,
+	imagen VARCHAR(255),
+	precio MONEY,
+	IdEstado INT DEFAULT 1,
+	IdPais int,
+	IdDestino BIGINT,
+	FOREIGN KEY (IdEstado) REFERENCES estado(ID),
+	FOREIGN KEY (IdDestino) REFERENCES destino(ID),
+	FOREIGN KEY (IdPais) REFERENCES paises(ID));
+
+	-- Crear la tabla 'reserva Hoteles'
+CREATE TABLE reservaHoteles (
+    ID BIGINT IDENTITY(1,1) PRIMARY KEY,
+    IdHotel BIGINT NOT NULL,
+	Fecha DATE NOT NULL,
+    FOREIGN KEY (IdHotel) REFERENCES hoteles(ID)
 );
+
+-- Crear la tabla 'reserva Carros'
+CREATE TABLE reservaCarros (
+    ID BIGINT IDENTITY(1,1) PRIMARY KEY,
+    IdCarro BIGINT NOT NULL,
+	Fecha DATE NOT NULL,
+    FOREIGN KEY (IdCarro) REFERENCES carros(ID)
+);
+
+-- Crear la tabla 'reserva Vuelos'
+CREATE TABLE reservaVuelos (
+    ID BIGINT IDENTITY(1,1) PRIMARY KEY,
+    IdVuelos BIGINT NOT NULL,
+	Fecha DATE NOT NULL,
+    FOREIGN KEY (IdVuelos) REFERENCES vuelos(ID)
+);
+
+-- Crear la tabla 'reserva Tours'
+CREATE TABLE reservaTours (
+    ID BIGINT IDENTITY(1,1) PRIMARY KEY,
+    IdTours BIGINT NOT NULL,
+	Fecha DATE NOT NULL,
+    FOREIGN KEY (IdTours) REFERENCES tours(ID)
+);
+
+		-- Crear la tabla 'reseñas'
+CREATE TABLE resennas (
+    ID BIGINT IDENTITY(1,1) PRIMARY KEY,
+    titulo VARCHAR(255) NOT NULL,
+	descripcion VARCHAR(255) NOT NULL,
+    puntuacion DECIMAL(3, 2) NOT NULL,
+	IdUser BIGINT,
+	IdHotel BIGINT,
+	FOREIGN KEY (IdUser) REFERENCES usuarios(ID),
+	FOREIGN KEY (IdHotel) REFERENCES hoteles(ID));
 
 select * from usuarios
 select * from hoteles
+select * from carros
+select * from vuelos
+select * from reservaHoteles
+select * from reservaCarros
+select * from reservaVuelos
+select * from reservaTours
+

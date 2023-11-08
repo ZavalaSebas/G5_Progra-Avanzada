@@ -12,27 +12,32 @@ namespace API
     using System;
     using System.Collections.Generic;
     
-    public partial class paises
+    public partial class estado
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public paises()
+        public estado()
         {
             this.carros = new HashSet<carros>();
+            this.destino = new HashSet<destino>();
             this.hoteles = new HashSet<hoteles>();
             this.tours = new HashSet<tours>();
+            this.usuarios = new HashSet<usuarios>();
             this.vuelos = new HashSet<vuelos>();
         }
     
         public int ID { get; set; }
-        public string Nombre { get; set; }
-        public string Codigo { get; set; }
+        public string nombre { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<carros> carros { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<destino> destino { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<hoteles> hoteles { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tours> tours { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<usuarios> usuarios { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<vuelos> vuelos { get; set; }
     }
