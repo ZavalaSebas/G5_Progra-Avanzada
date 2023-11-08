@@ -7,7 +7,7 @@ namespace G5_ProgramacionAvanzada.Entities
 {
     public class PaisesEnt
     {
-        public int IDPais { get; set; }
+        public int IdPais { get; set; }
         public string Nombre { get; set; }
         public string Codigo { get; set; }
     }

@@ -23,13 +23,12 @@ namespace API.Controllers
                     hoteles hotel = new hoteles();
                     hotel.nombre = entidad.nombre;
                     hotel.direccion = entidad.direccion;
-                    hotel.Pais = entidad.IDPais;
-                    hotel.puntuacion = entidad.puntuacion;
                     hotel.descripcion = entidad.descripcion;
                     hotel.precio = entidad.precio;
                     hotel.imagen = entidad.imagen;
                     hotel.IdAmenidades = entidad.IdAmenidades;
-
+                    hotel.IdPais = entidad.IdPais;
+                    hotel.IdEstado = entidad.IdEstado;
 
                     context.hoteles.Add(hotel);
                     context.SaveChanges();
@@ -55,17 +54,19 @@ namespace API.Controllers
                 {
                     context.Configuration.LazyLoadingEnabled = false;
                     var datos = (from hoteles in context.hoteles
-                                 join amenidades in context.amenidades on hoteles.IdAmenidades equals amenidades.IDAmenidades
+                                 join estado in context.estado on hoteles.IdEstado equals estado.ID
+                                 join paises in context.paises on hoteles.IdPais equals paises.ID
+                                 join amenidades in context.amenidades on hoteles.IdAmenidades equals amenidades.ID
                                  select new HotelesEnt
                                  {
                                      nombre = hoteles.nombre,
                                      direccion = hoteles.direccion,
-                                     puntuacion = hoteles.puntuacion,
                                      descripcion = hoteles.descripcion,
                                      precio = hoteles.precio,
                                      imagen = hoteles.imagen,
-                                     IdAmenidades = amenidades.IDAmenidades,
-                                     IDPais = (int)hoteles.Pais
+                                     IdEstado = estado.ID,
+                                     IdAmenidades = amenidades.ID,
+                                     IdPais = paises.ID
                                  }).ToList();
 
                     return datos;
@@ -97,7 +98,7 @@ namespace API.Controllers
                     {
                         result.Add(new System.Web.Mvc.SelectListItem
                         {
-                            Value = item.IDAmenidades.ToString(),
+                            Value = item.ID.ToString(),
                             Text = item.nombre
                         });
                     }
@@ -118,7 +119,7 @@ namespace API.Controllers
             {
                 using (var context = new ProyectoBDEntities1())
                 {
-                    var datos = (from x in context.Paises
+                    var datos = (from x in context.paises
                                  select x).ToList();
 
                     var result = new List<System.Web.Mvc.SelectListItem>();
@@ -126,7 +127,7 @@ namespace API.Controllers
                     {
                         result.Add(new System.Web.Mvc.SelectListItem
                         {
-                            Value = item.IDPais.ToString(),
+                            Value = item.ID.ToString(),
                             Text = item.Nombre
                         });
                     }

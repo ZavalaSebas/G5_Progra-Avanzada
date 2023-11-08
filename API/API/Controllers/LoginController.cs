@@ -27,8 +27,8 @@ namespace API.Controllers
                     user.apellidos = entidad.apellidos;
                     user.email = entidad.email;
                     user.contrasenna = entidad.contrasenna;
-                    user.estado = true;
-                    user.IDRol = 2;
+                    user.IdEstado = 1;
+                    user.IdRol = 2;
 
                     context.usuarios.Add(user);
                     context.SaveChanges();
@@ -57,7 +57,7 @@ namespace API.Controllers
                     var datos = (from x in context.usuarios
                                  where x.email == entidad.email
                                  && x.contrasenna == entidad.contrasenna
-                                 && x.estado == true
+                                 && x.IdEstado == 1
                                  select x).FirstOrDefault();
 
                     return datos;
