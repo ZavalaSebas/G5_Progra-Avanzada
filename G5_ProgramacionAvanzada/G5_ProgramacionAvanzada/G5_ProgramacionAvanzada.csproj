@@ -151,15 +151,19 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CarrosController.cs" />
     <Compile Include="Controllers\HotelesController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Entities\AmenidadesEnt.cs" />
+    <Compile Include="Entities\CarrosEnt.cs" />
+    <Compile Include="Entities\EstadoEnt.cs" />
     <Compile Include="Entities\HotelesEnt.cs" />
     <Compile Include="Entities\PaisesEnt.cs" />
     <Compile Include="Entities\UsuarioEnt.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CarrosModel.cs" />
     <Compile Include="Models\HotelesModel.cs" />
     <Compile Include="Models\UsuarioModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -559,6 +563,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Carros\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
