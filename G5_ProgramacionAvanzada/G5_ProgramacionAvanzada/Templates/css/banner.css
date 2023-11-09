@@ -1,0 +1,23 @@
+#home_five_banner {
+    background-image: url('../img/banner/banner-five.png');
+    padding: 325px 0 340px 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative; /* Importante para que los elementos internos se posicionen correctamente */
+}
+
+    #home_five_banner .content {
+        position: relative; /* Para que los elementos internos se posicionen correctamente */
+        z-index: 1; /* Superpone el contenido sobre la imagen de fondo */
+    }
+
+    #home_five_banner h1 {
+        font-size: 24px;
+        color: #fff;
+    }
+
+    #home_five_banner p {
+        color: #fff;
+    }
+
+

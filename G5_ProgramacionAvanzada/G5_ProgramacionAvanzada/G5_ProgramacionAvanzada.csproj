@@ -154,6 +154,7 @@
     <Compile Include="Controllers\CarrosController.cs" />
     <Compile Include="Controllers\HotelesController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\PaginasInfoController.cs" />
     <Compile Include="Entities\AmenidadesEnt.cs" />
     <Compile Include="Entities\CarrosEnt.cs" />
     <Compile Include="Entities\EstadoEnt.cs" />
@@ -241,7 +242,7 @@
     <Content Include="Templates\img\banner\banner-three.png" />
     <Content Include="Templates\img\banner\banner-two-bg-1.png" />
     <Content Include="Templates\img\banner\banner-two-bg-2.png" />
-    <Content Include="Templates\img\banner\banner-two-bg-3.png" />
+    <Content Include="Templates\img\banner\banner-five.png" />
     <Content Include="Templates\img\banner\bg.png" />
     <Content Include="Templates\img\banner\client-bg.png" />
     <Content Include="Templates\img\banner\common-banner.png" />
@@ -560,6 +561,9 @@
     <Content Include="Views\Hoteles\ConsultaHotel.cshtml" />
     <Content Include="Views\Login\ListaUsuarios.cshtml" />
     <Content Include="Views\Hoteles\EditarHotel.cshtml" />
+    <Content Include="Views\PaginasInfo\SobreNosotros.cshtml" />
+    <Content Include="Views\PaginasInfo\PoliticasPrivacidad.cshtml" />
+    <Content Include="Templates\css\banner.css" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
