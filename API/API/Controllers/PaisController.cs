@@ -15,7 +15,7 @@ namespace API.Controllers
         {
             try
             {
-                using (var context = new ProyectoBDEntities1())
+                using (var context = new ProyectoBDEntities())
                 {
                     var datos = (from x in context.paises
                                  select x).ToList();

@@ -14,7 +14,7 @@ namespace API.Controllers
         [Route("AgregarResena")]
         public string AgregarResena(ResenaEnt entidad)
         {
-            using (var context = new ProyectoBDEntities1())
+            using (var context = new ProyectoBDEntities())
             {
                 try
                 {
@@ -43,7 +43,7 @@ namespace API.Controllers
         {
             try
             {
-                using (var context = new ProyectoBDEntities1())
+                using (var context = new ProyectoBDEntities())
                 {
                     context.Configuration.LazyLoadingEnabled = false;
                     var datos = (from resena in context.resennas

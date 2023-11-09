@@ -15,7 +15,7 @@ namespace API.Controllers
         [Route("AnadirVuelo")]
         public string AnadirVuelo(VuelosEnt entidad)
         {
-            using (var context = new ProyectoBDEntities1())
+            using (var context = new ProyectoBDEntities())
             {
                 try
                 {
@@ -45,7 +45,7 @@ namespace API.Controllers
         {
             try
             {
-                using (var context = new ProyectoBDEntities1())
+                using (var context = new ProyectoBDEntities())
                 {
                     context.Configuration.LazyLoadingEnabled = false;
                     var datos = (from vuelos in context.vuelos
