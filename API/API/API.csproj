@@ -185,6 +185,7 @@
     <Compile Include="Entities\HotelesEnt.cs" />
     <Compile Include="Entities\PaisesEnt.cs" />
     <Compile Include="Entities\ResenasEnt.cs" />
+    <Compile Include="Entities\ToursEnt.cs" />
     <Compile Include="Entities\UsuarioEnt.cs" />
     <Compile Include="Entities\Utilitarios.cs" />
     <Compile Include="estado.cs">
