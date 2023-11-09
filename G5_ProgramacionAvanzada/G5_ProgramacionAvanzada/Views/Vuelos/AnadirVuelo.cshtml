@@ -1,0 +1,70 @@
+﻿@model G5_ProgramacionAvanzada.Entities.VuelosEnt
+
+
+<!-- Banner Area -->
+<section id="common_banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="common_bannner_text">
+                    <h2>Hoteles Disponibles</h2>
+                    <ul>
+                        <li><a href="@Url.Action("Index","Login")">Index</a></li>
+                        <li><span><i class="fas fa-circle"></i></span> Hoteles</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Vendor Form Area -->
+<section id="vendor_form_area" class="section_padding_bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="vendor_form_heading">
+                    <div class="section_heading_center">
+                        <br />
+                        <br />
+                        <br />
+                        <h2>Añade un hotel disponible</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-10">
+                <div class="vendor_form">
+                    <div class="tour_booking_form_box">
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Fecha, new { @class = "control-label" })
+                                @Html.EditorFor(model => model.Fecha, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Fecha, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.precio, new { @class = "control-label" })
+                                @Html.EditorFor(model => model.precio, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.precio, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.IdPais, "País", new { @class = "control-label" })
+                                @Html.DropDownListFor(model => model.IdPais, (IEnumerable<SelectListItem>)ViewBag.Paises, "Seleccione un país", new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.IdPais, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Añadir Vuelo" class="btn btn-primary" />
+                            </div>
+                        }
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

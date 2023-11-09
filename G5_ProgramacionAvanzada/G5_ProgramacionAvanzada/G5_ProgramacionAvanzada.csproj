@@ -161,10 +161,12 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\PaginasInfoController.cs" />
     <Compile Include="Controllers\ResenasController.cs" />
     <Compile Include="Controllers\CarrosController.cs" />
     <Compile Include="Controllers\HotelesController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\VuelosController.cs" />
     <Compile Include="Entities\AmenidadesEnt.cs" />
     <Compile Include="Entities\CarrosEnt.cs" />
     <Compile Include="Entities\EstadoEnt.cs" />
@@ -172,6 +174,7 @@
     <Compile Include="Entities\PaisesEnt.cs" />
     <Compile Include="Entities\ResenasEnt.cs" />
     <Compile Include="Entities\UsuarioEnt.cs" />
+    <Compile Include="Entities\VuelosEnt.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -181,6 +184,7 @@
     <Compile Include="Models\HotelesModel.cs" />
     <Compile Include="Models\PaisesModel.cs" />
     <Compile Include="Models\UsuarioModel.cs" />
+    <Compile Include="Models\VuelosModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -585,6 +589,10 @@
     <Content Include="Views\Carros\EditarCarro.cshtml" />
     <Content Include="Views\Resenas\AnadirResena.cshtml" />
     <Content Include="Views\Resenas\ConsultaResenas.cshtml" />
+    <Content Include="Views\Vuelos\ConsultaVuelos.cshtml" />
+    <Content Include="Views\Vuelos\AnadirVuelo.cshtml" />
+    <Content Include="Views\PaginasInfo\PoliticasPrivacidad.cshtml" />
+    <Content Include="Views\PaginasInfo\SobreNosotros.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

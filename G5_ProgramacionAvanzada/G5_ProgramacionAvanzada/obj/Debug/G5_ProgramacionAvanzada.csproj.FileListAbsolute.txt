@@ -570,3 +570,12 @@ C:\Users\Sebas\Downloads\G5_Progra-Avanzada\G5_ProgramacionAvanzada\G5_Programac
 C:\Users\Sebas\Downloads\G5_Progra-Avanzada\G5_ProgramacionAvanzada\G5_ProgramacionAvanzada\obj\Debug\G5_ProgramacionAvanzada.csproj.CopyComplete
 C:\Users\Sebas\Downloads\G5_Progra-Avanzada\G5_ProgramacionAvanzada\G5_ProgramacionAvanzada\obj\Debug\G5_ProgramacionAvanzada.dll
 C:\Users\Sebas\Downloads\G5_Progra-Avanzada\G5_ProgramacionAvanzada\G5_ProgramacionAvanzada\obj\Debug\G5_ProgramacionAvanzada.pdb
+D:\Repos\G5_Progra-Avanzada\G5_ProgramacionAvanzada\G5_ProgramacionAvanzada\bin\Raven.Studio.Html5.zip
+D:\Repos\G5_Progra-Avanzada\G5_ProgramacionAvanzada\G5_ProgramacionAvanzada\bin\Raven.Abstractions.dll
+D:\Repos\G5_Progra-Avanzada\G5_ProgramacionAvanzada\G5_ProgramacionAvanzada\bin\Raven.Client.Lightweight.dll
+D:\Repos\G5_Progra-Avanzada\G5_ProgramacionAvanzada\G5_ProgramacionAvanzada\bin\Raven.Database.dll
+D:\Repos\G5_Progra-Avanzada\G5_ProgramacionAvanzada\G5_ProgramacionAvanzada\bin\Raven.Abstractions.pdb
+D:\Repos\G5_Progra-Avanzada\G5_ProgramacionAvanzada\G5_ProgramacionAvanzada\bin\Raven.Abstractions.xml
+D:\Repos\G5_Progra-Avanzada\G5_ProgramacionAvanzada\G5_ProgramacionAvanzada\bin\Raven.Client.Lightweight.pdb
+D:\Repos\G5_Progra-Avanzada\G5_ProgramacionAvanzada\G5_ProgramacionAvanzada\bin\Raven.Client.Lightweight.xml
+D:\Repos\G5_Progra-Avanzada\G5_ProgramacionAvanzada\G5_ProgramacionAvanzada\bin\Raven.Database.pdb
