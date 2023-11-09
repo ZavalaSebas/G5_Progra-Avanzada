@@ -1,0 +1,72 @@
+﻿@model G5_ProgramacionAvanzada.Entities.ResenaEnt
+@{
+    ViewBag.Title = "AnadirResena";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Banner Area -->
+<section id="common_banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="common_bannner_text">
+                    <h2>Añadir Reseña</h2>
+                    <ul>
+                        <li><a href="@Url.Action("Index","Login")">Index</a></li>
+                        <li><span><i class="fas fa-circle"></i></span> Añadir Reseña</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="añadir_resena_area" class="section_padding_bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="añadir_resena_heading">
+                    <div class="section_heading_center">
+                        <br />
+                        <br />
+                        <br />
+                        <h2>Añade tu reseña</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-10">
+                <div class="añadir_resena_form">
+                    <div class="resena_booking_form_box">
+                        @using (Html.BeginForm("AnadirResena", "Resenas", FormMethod.Post, new { @class = "pt-3" }))
+                        {
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(m => m.IdUsuario, new { @class = "form-control form-control-lg", @placeholder = "Tu Nombre", @type = "text" })
+                                        <br />
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        @Html.TextAreaFor(m => m.Descripcion, new { @class = "form-control form-control-lg", @placeholder = "Tu Comentario", @rows = "3" })
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(m => m.Puntuacion, new { @class = "form-control form-control-lg", @placeholder = "Tu Calificación", @type = "number", @min = "1", @max = "5" })
+                                        <br />
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <input type="submit" class="btn btn_theme btn_md btn-block font-weight-medium auth-form-btn" value="Añadir Reseña">
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
