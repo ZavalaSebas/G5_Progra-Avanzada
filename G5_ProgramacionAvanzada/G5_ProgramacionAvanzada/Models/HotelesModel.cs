@@ -59,6 +59,25 @@ namespace G5_ProgramacionAvanzada.Models
                 return res.Content.ReadFromJsonAsync<List<HotelesEnt>>().Result;
             }
         }
-       
+        //-------------------------------------------------------------------
+        public List<SelectListItem> Amenidades()
+        {
+            using (var client = new HttpClient())
+            {
+                var urlApi = ruta + "Amenidades";
+                var res = client.GetAsync(urlApi).Result;
+                return res.Content.ReadFromJsonAsync<List<SelectListItem>>().Result;
+            }
+        }
+        //-------------------------------------------------------------------
+        public List<SelectListItem> Paises()
+        {
+            using (var client = new HttpClient())
+            {
+                var urlApi = ruta + "Paises";
+                var res = client.GetAsync(urlApi).Result;
+                return res.Content.ReadFromJsonAsync<List<SelectListItem>>().Result;
+            }
+        }
     }
 }

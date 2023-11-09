@@ -11,16 +11,13 @@ namespace G5_ProgramacionAvanzada.Controllers
     public class HotelesController : Controller
     {
         HotelesModel MH = new HotelesModel();
-        PaisesModel MP = new PaisesModel();
-        AmenidadesModel MA = new AmenidadesModel();
-
 
         //-------------------------------------------------------------------
         [HttpGet]
         public ActionResult AnadirHotel()
         {
-            ViewBag.Amenidades = MA.Amenidades();
-            ViewBag.Paises = MP.Paises();
+            ViewBag.Amenidades = MH.Amenidades();
+            ViewBag.Paises = MH.Paises();
             return View();
         }
 
@@ -62,5 +59,18 @@ namespace G5_ProgramacionAvanzada.Controllers
             return View();
         }
         //-------------------------------------------------------------------
+
+        public ActionResult Amenidades()
+        {
+            var datos = MH.Amenidades();
+            return View(datos);
+        }
+        //-------------------------------------------------------------------
+
+        public ActionResult Paises()
+        {
+            var datos = MH.Paises();
+            return View(datos);
+        }
     }
 }

@@ -82,6 +82,62 @@ namespace API.Controllers
         //-------------------------------------------------------------------
 
         //-------------------------------------------------------------------
-       
+        [HttpGet]
+        [Route("Amenidades")]
+        public List<System.Web.Mvc.SelectListItem> Amenidades()
+        {
+            try
+            {
+                using (var context = new ProyectoBDEntities1())
+                {
+                    var datos = (from x in context.amenidades
+                                 select x).ToList();
+
+                    var result = new List<System.Web.Mvc.SelectListItem>();
+                    foreach (var item in datos)
+                    {
+                        result.Add(new System.Web.Mvc.SelectListItem
+                        {
+                            Value = item.ID.ToString(),
+                            Text = item.nombre
+                        });
+                    }
+                    return result;
+                }
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+        //-------------------------------------------------------------------
+        [HttpGet]
+        [Route("Paises")]
+        public List<System.Web.Mvc.SelectListItem> Paises()
+        {
+            try
+            {
+                using (var context = new ProyectoBDEntities1())
+                {
+                    var datos = (from x in context.paises
+                                 select x).ToList();
+
+                    var result = new List<System.Web.Mvc.SelectListItem>();
+                    foreach (var item in datos)
+                    {
+                        result.Add(new System.Web.Mvc.SelectListItem
+                        {
+                            Value = item.ID.ToString(),
+                            Text = item.Nombre
+                        });
+                    }
+                    return result;
+                }
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
     }
 }

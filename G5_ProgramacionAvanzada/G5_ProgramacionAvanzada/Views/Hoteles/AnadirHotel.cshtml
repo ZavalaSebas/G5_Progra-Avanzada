@@ -11,7 +11,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="common_bannner_text">
-                    <h2>Hoteles Disponibles</h2>
+                    <h2>Hotel search result</h2>
                     <ul>
                         <li><a href="@Url.Action("Index","Login")">Index</a></li>
                         <li><span><i class="fas fa-circle"></i></span> Hoteles</li>
@@ -32,11 +32,11 @@
                         <br />
                         <br />
                         <br />
-                        <h2>Añade un hotel disponible</h2>
+                        <h2>Añade un nuevo hotel disponible</h2>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-10">
+            <div class="col-lg-8">
                 <div class="vendor_form">
                     <div class="tour_booking_form_box">
                         @using (Html.BeginForm("AnadirHotel", "Hoteles", FormMethod.Post, new { @class = "pt-3" }))
@@ -44,53 +44,73 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        @Html.TextBoxFor(m => m.nombre, new { @class = "form-control form-control-lg", @placeholder = "Nombre", @type = "text" })
-                                        <br />
+                                        <input type="text" class="form-control bg_input" placeholder="First name*">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        @Html.TextBoxFor(m => m.descripcion, new { @class = "form-control form-control-lg", @placeholder = "Descripción", @type = "text" })
+                                        <input type="text" class="form-control bg_input" placeholder="Last name*">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        @Html.TextBoxFor(m => m.direccion, new { @class = "form-control form-control-lg", @placeholder = "Dirección", @type = "text" })
-                                        <br />
+                                        <input type="text" class="form-control bg_input"
+                                               placeholder="Email address (Optional)">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        @Html.TextBoxFor(m => m.precio, new { @class = "form-control form-control-lg", @placeholder = "Precio por noche", @type = "text" })
-
+                                        <input type="text" class="form-control bg_input"
+                                               placeholder="Mobile number*">
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control bg_input"
+                                               placeholder="Street address">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        @Html.DropDownListFor(model => model.IdAmenidades, ViewBag.Amenidades as List<SelectListItem>, new { @class = "form-control form-select bg_input", @type = "number", @required = "", @placeholder = "Amenidades" })
-                                        <br />
+                                        <input type="text" class="form-control bg_input"
+                                               placeholder="Apartment, Suite, House no (optional)">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        @Html.DropDownListFor(model => model.IdPais, ViewBag.Paises as List<SelectListItem>, new { @class = "form-control form-select bg_input", @type = "number", @required = "", @placeholder = "País" })
+                                        <select class="form-control form-select bg_input">
+                                            <option value="1">Khulna</option>
+                                            <option value="1">New York</option>
+                                            <option value="1">Barisal</option>
+                                            <option value="1">Nator</option>
+                                            <option value="1">Joybangla</option>
+                                        </select>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-lg-4">
-                                        <div class="form-group">
-                                            @Html.TextBoxFor(m => m.imagen, new { @class = "form-control form-control-lg", @placeholder = "Imagen del Hotel", @type = "text" })
-                                        </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        @Html.DropDownListFor(model => model.IDPais, ViewBag.Paises as List<SelectListItem>, new { @class = "form-control", @type = "number", @required = "", @placeholder = "País" })
                                     </div>
-                                </div>
-
-                                <div class="mt-3">
-                                    <input type="submit" class="btn btn_theme btn_md btn-block font-weight-medium auth-form-btn" value="Añadir Hotel">
-                                </div>
                             </div>
                         }
                     </div>
-                    
+                    <div class="booking_tour_form_submit pt-4">
+                        <div class="form-check write_spical_check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefaultf1">
+                            <label class="form-check-label" for="flexCheckDefaultf1">
+                                I have read and accept the <a href="terms-service.html">
+                                    Terms and
+                                    conditions
+                                </a> and <a href="privacy-policy.html">Privacy policy</a>
+                            </label>
+                        </div>
+                        <a href="booking-confirmation.html" class="btn btn_theme btn_md">Sign up</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="vendor_img">
+                    <img src="assets/img/common/vendor.png" alt="img">
                 </div>
             </div>
         </div>
