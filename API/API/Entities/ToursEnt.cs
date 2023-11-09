@@ -11,7 +11,7 @@ namespace API.Entities
         public string nombre { get; set; }
         public string descripcion { get; set; }
         public string imagen { get; set; }
-        public decimal  { get; set; }
+        public decimal precio { get; set; }
         public int IdEstado { get; set; }
         public int IdPais { get; set; }
         public long IdDestino { get; set; }
