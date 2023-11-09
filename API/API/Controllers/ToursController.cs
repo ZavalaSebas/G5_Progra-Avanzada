@@ -38,5 +38,15 @@ namespace API.Controllers
                 }
             }
         }
+
+        [HttpGet]
+        [Route("ConsultaTours")]
+        public List<tours> ConsultaTours()
+        {
+            using (var context = new ProyectoBDEntities())
+            {
+                return context.tours.ToList();
+            }
+        }
     }
 }
