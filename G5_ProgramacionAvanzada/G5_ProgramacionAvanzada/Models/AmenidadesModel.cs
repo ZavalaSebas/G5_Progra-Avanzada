@@ -9,19 +9,17 @@ using System.Web.Mvc;
 
 namespace G5_ProgramacionAvanzada.Models
 {
-    public class PaisesModel
+    public class AmenidadesModel
     {
         public string ruta = ConfigurationManager.AppSettings["ruta"];
-
         //-------------------------------------------------------------------
-        public List<SelectListItem> Paises()
+        public List<SelectListItem> Amenidades()
         {
             using (var client = new HttpClient())
             {
-                var urlApi = ruta + "Paises";
+                var urlApi = ruta + "Amenidades";
                 var res = client.GetAsync(urlApi).Result;
                 return res.Content.ReadFromJsonAsync<List<SelectListItem>>().Result;
-
             }
         }
     }
