@@ -1,3 +1,4 @@
+
 -- Crear la base de datos
 CREATE DATABASE ProyectoBD;
 
@@ -317,11 +318,10 @@ CREATE TABLE estado (
 insert into estado (ID, nombre)
 VALUES  
 (0, 'Inactivo'),
-(2, 'Activo'),
-(3, 'Mantenimiento'),
-(4, 'Completado'),
-(5, 'Atrasado');
-
+(1, 'Activo'),
+(2, 'Mantenimiento'),
+(3, 'Completado'),
+(4, 'Atrasado');
 
 -- Crear la tabla 'usuarios'
 CREATE TABLE usuarios (

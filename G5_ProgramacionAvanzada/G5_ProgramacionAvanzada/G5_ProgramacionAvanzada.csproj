@@ -163,8 +163,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AmenidadesModel.cs" />
     <Compile Include="Models\CarrosModel.cs" />
     <Compile Include="Models\HotelesModel.cs" />
+    <Compile Include="Models\PaisesModel.cs" />
     <Compile Include="Models\UsuarioModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -560,10 +562,13 @@
     <Content Include="Views\Hoteles\ConsultaHotel.cshtml" />
     <Content Include="Views\Login\ListaUsuarios.cshtml" />
     <Content Include="Views\Hoteles\EditarHotel.cshtml" />
+    <Content Include="Views\Carros\AnadirCarro.cshtml" />
+    <Content Include="Views\Carros\ConsultaCarro.cshtml" />
+    <Content Include="Views\Carros\EditarCarro.cshtml" />
+    <Content Include="Views\Carros\EliminarCarro.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Carros\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
