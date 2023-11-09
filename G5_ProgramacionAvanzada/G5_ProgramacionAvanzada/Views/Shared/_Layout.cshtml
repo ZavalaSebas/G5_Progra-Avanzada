@@ -145,14 +145,29 @@
                                                         <a href="@Url.Action("AnadirHotel", "Hoteles")" class="nav-link active">Añadir Hotel</a>
                                                     </li>
                                                     <li class="nav-item">
-                                                        <a href="@Url.Action("EliminarHotel", "Hoteles")" class="nav-link">Eliminar Hotel</a>
+                                                        <a href="@Url.Action("EditarHotel", "Hoteles")" class="nav-link">Editar Hotel</a>
                                                     </li>
                                                 </ul>
                                             }
                                         </li>
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link">
-                                                Crucero
+                                            <a href="@Url.Action("ConsultaCarro","Carros")" class="nav-link">
+                                                Vehículos Disponibles
+                                            </a>
+                                            @if (Session["NombreUsuario"] != null && (int)Session["NombreUsuario"] != 1)
+                                            {
+                                                <ul class="dropdown-menu">
+                                                    <li class="nav-item">
+                                                        <a href="@Url.Action("ConsultaCarro", "Carros")" class="nav-link active">Vehículos Disponibles</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a href="@Url.Action("AnadirCarro", "Carros")" class="nav-link active">Añadir Vehículo</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a href="@Url.Action("EditarCarro", "Carros")" class="nav-link">Editar Vehículo</a>
+                                                    </li>
+                                                </ul>
+                                            }
                                             </a>
                                         </li>
                                     </ul>

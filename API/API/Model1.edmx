@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ProyectoBDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ProyectoBDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="amenidades">
           <Key>
             <PropertyRef Name="ID" />
@@ -154,7 +154,7 @@
           <Property Name="IdEstado" Type="int" />
           <Property Name="IdPais" Type="int" />
         </EntityType>
-        <Association Name="FK__carros__IdEstado__5812160E">
+        <Association Name="FK__carros__IdEstado__14270015">
           <End Role="estado" Type="Self.estado" Multiplicity="0..1" />
           <End Role="carros" Type="Self.carros" Multiplicity="*" />
           <ReferentialConstraint>
@@ -166,7 +166,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__carros__IdPais__59063A47">
+        <Association Name="FK__carros__IdPais__151B244E">
           <End Role="paises" Type="Self.paises" Multiplicity="0..1" />
           <End Role="carros" Type="Self.carros" Multiplicity="*" />
           <ReferentialConstraint>
@@ -178,7 +178,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__destino__IdEstad__4E88ABD4">
+        <Association Name="FK__destino__IdEstad__0A9D95DB">
           <End Role="estado" Type="Self.estado" Multiplicity="0..1" />
           <End Role="destino" Type="Self.destino" Multiplicity="*" />
           <ReferentialConstraint>
@@ -190,7 +190,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__hoteles__IdAmeni__6D0D32F4">
+        <Association Name="FK__hoteles__IdAmeni__0F624AF8">
           <End Role="amenidades" Type="Self.amenidades" Multiplicity="0..1" />
           <End Role="hoteles" Type="Self.hoteles" Multiplicity="*" />
           <ReferentialConstraint>
@@ -202,7 +202,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__hoteles__IdEstad__6C190EBB">
+        <Association Name="FK__hoteles__IdEstad__0E6E26BF">
           <End Role="estado" Type="Self.estado" Multiplicity="0..1" />
           <End Role="hoteles" Type="Self.hoteles" Multiplicity="*" />
           <ReferentialConstraint>
@@ -214,7 +214,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__hoteles__IdPais__6E01572D">
+        <Association Name="FK__hoteles__IdPais__10566F31">
           <End Role="paises" Type="Self.paises" Multiplicity="0..1" />
           <End Role="hoteles" Type="Self.hoteles" Multiplicity="*" />
           <ReferentialConstraint>
@@ -226,7 +226,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__resennas__IdHote__7D439ABD">
+        <Association Name="FK__resennas__IdHote__2EDAF651">
           <End Role="hoteles" Type="Self.hoteles" Multiplicity="0..1" />
           <End Role="resennas" Type="Self.resennas" Multiplicity="*" />
           <ReferentialConstraint>
@@ -238,7 +238,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__resennas__IdUser__7C4F7684">
+        <Association Name="FK__resennas__IdUser__2DE6D218">
           <End Role="usuarios" Type="Self.usuarios" Multiplicity="0..1" />
           <End Role="resennas" Type="Self.resennas" Multiplicity="*" />
           <ReferentialConstraint>
@@ -250,7 +250,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__reservaCa__IdCar__73BA3083">
+        <Association Name="FK__reservaCa__IdCar__25518C17">
           <End Role="carros" Type="Self.carros" Multiplicity="1" />
           <End Role="reservaCarros" Type="Self.reservaCarros" Multiplicity="*" />
           <ReferentialConstraint>
@@ -262,7 +262,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__reservaHo__IdHot__70DDC3D8">
+        <Association Name="FK__reservaHo__IdHot__22751F6C">
           <End Role="hoteles" Type="Self.hoteles" Multiplicity="1" />
           <End Role="reservaHoteles" Type="Self.reservaHoteles" Multiplicity="*" />
           <ReferentialConstraint>
@@ -274,7 +274,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__reservaTo__IdTou__797309D9">
+        <Association Name="FK__reservaTo__IdTou__2B0A656D">
           <End Role="tours" Type="Self.tours" Multiplicity="1" />
           <End Role="reservaTours" Type="Self.reservaTours" Multiplicity="*" />
           <ReferentialConstraint>
@@ -286,7 +286,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__reservaVu__IdVue__76969D2E">
+        <Association Name="FK__reservaVu__IdVue__282DF8C2">
           <End Role="vuelos" Type="Self.vuelos" Multiplicity="1" />
           <End Role="reservaVuelos" Type="Self.reservaVuelos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -298,7 +298,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tours__IdDestino__6754599E">
+        <Association Name="FK__tours__IdDestino__1EA48E88">
           <End Role="destino" Type="Self.destino" Multiplicity="0..1" />
           <End Role="tours" Type="Self.tours" Multiplicity="*" />
           <ReferentialConstraint>
@@ -310,7 +310,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tours__IdEstado__66603565">
+        <Association Name="FK__tours__IdEstado__1DB06A4F">
           <End Role="estado" Type="Self.estado" Multiplicity="0..1" />
           <End Role="tours" Type="Self.tours" Multiplicity="*" />
           <ReferentialConstraint>
@@ -322,7 +322,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tours__IdPais__68487DD7">
+        <Association Name="FK__tours__IdPais__1F98B2C1">
           <End Role="paises" Type="Self.paises" Multiplicity="0..1" />
           <End Role="tours" Type="Self.tours" Multiplicity="*" />
           <ReferentialConstraint>
@@ -334,7 +334,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__usuarios__IdEsta__4AB81AF0">
+        <Association Name="FK__usuarios__IdEsta__06CD04F7">
           <End Role="estado" Type="Self.estado" Multiplicity="0..1" />
           <End Role="usuarios" Type="Self.usuarios" Multiplicity="*" />
           <ReferentialConstraint>
@@ -346,7 +346,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__usuarios__IdRol__49C3F6B7">
+        <Association Name="FK__usuarios__IdRol__05D8E0BE">
           <End Role="rol" Type="Self.rol" Multiplicity="0..1" />
           <End Role="usuarios" Type="Self.usuarios" Multiplicity="*" />
           <ReferentialConstraint>
@@ -358,7 +358,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__vuelos__IdEstado__619B8048">
+        <Association Name="FK__vuelos__IdEstado__18EBB532">
           <End Role="estado" Type="Self.estado" Multiplicity="0..1" />
           <End Role="vuelos" Type="Self.vuelos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -370,7 +370,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__vuelos__IdPais__628FA481">
+        <Association Name="FK__vuelos__IdPais__19DFD96B">
           <End Role="paises" Type="Self.paises" Multiplicity="0..1" />
           <End Role="vuelos" Type="Self.vuelos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -398,85 +398,84 @@
           <EntitySet Name="tours" EntityType="Self.tours" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="usuarios" EntityType="Self.usuarios" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="vuelos" EntityType="Self.vuelos" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__carros__IdEstado__5812160E" Association="Self.FK__carros__IdEstado__5812160E">
+          <AssociationSet Name="FK__carros__IdEstado__14270015" Association="Self.FK__carros__IdEstado__14270015">
             <End Role="estado" EntitySet="estado" />
             <End Role="carros" EntitySet="carros" />
           </AssociationSet>
-          <AssociationSet Name="FK__carros__IdPais__59063A47" Association="Self.FK__carros__IdPais__59063A47">
+          <AssociationSet Name="FK__carros__IdPais__151B244E" Association="Self.FK__carros__IdPais__151B244E">
             <End Role="paises" EntitySet="paises" />
             <End Role="carros" EntitySet="carros" />
           </AssociationSet>
-          <AssociationSet Name="FK__destino__IdEstad__4E88ABD4" Association="Self.FK__destino__IdEstad__4E88ABD4">
+          <AssociationSet Name="FK__destino__IdEstad__0A9D95DB" Association="Self.FK__destino__IdEstad__0A9D95DB">
             <End Role="estado" EntitySet="estado" />
             <End Role="destino" EntitySet="destino" />
           </AssociationSet>
-          <AssociationSet Name="FK__hoteles__IdAmeni__6D0D32F4" Association="Self.FK__hoteles__IdAmeni__6D0D32F4">
+          <AssociationSet Name="FK__hoteles__IdAmeni__0F624AF8" Association="Self.FK__hoteles__IdAmeni__0F624AF8">
             <End Role="amenidades" EntitySet="amenidades" />
             <End Role="hoteles" EntitySet="hoteles" />
           </AssociationSet>
-          <AssociationSet Name="FK__hoteles__IdEstad__6C190EBB" Association="Self.FK__hoteles__IdEstad__6C190EBB">
+          <AssociationSet Name="FK__hoteles__IdEstad__0E6E26BF" Association="Self.FK__hoteles__IdEstad__0E6E26BF">
             <End Role="estado" EntitySet="estado" />
             <End Role="hoteles" EntitySet="hoteles" />
           </AssociationSet>
-          <AssociationSet Name="FK__hoteles__IdPais__6E01572D" Association="Self.FK__hoteles__IdPais__6E01572D">
+          <AssociationSet Name="FK__hoteles__IdPais__10566F31" Association="Self.FK__hoteles__IdPais__10566F31">
             <End Role="paises" EntitySet="paises" />
             <End Role="hoteles" EntitySet="hoteles" />
           </AssociationSet>
-          <AssociationSet Name="FK__resennas__IdHote__7D439ABD" Association="Self.FK__resennas__IdHote__7D439ABD">
+          <AssociationSet Name="FK__resennas__IdHote__2EDAF651" Association="Self.FK__resennas__IdHote__2EDAF651">
             <End Role="hoteles" EntitySet="hoteles" />
             <End Role="resennas" EntitySet="resennas" />
           </AssociationSet>
-          <AssociationSet Name="FK__resennas__IdUser__7C4F7684" Association="Self.FK__resennas__IdUser__7C4F7684">
+          <AssociationSet Name="FK__resennas__IdUser__2DE6D218" Association="Self.FK__resennas__IdUser__2DE6D218">
             <End Role="usuarios" EntitySet="usuarios" />
             <End Role="resennas" EntitySet="resennas" />
           </AssociationSet>
-          <AssociationSet Name="FK__reservaCa__IdCar__73BA3083" Association="Self.FK__reservaCa__IdCar__73BA3083">
+          <AssociationSet Name="FK__reservaCa__IdCar__25518C17" Association="Self.FK__reservaCa__IdCar__25518C17">
             <End Role="carros" EntitySet="carros" />
             <End Role="reservaCarros" EntitySet="reservaCarros" />
           </AssociationSet>
-          <AssociationSet Name="FK__reservaHo__IdHot__70DDC3D8" Association="Self.FK__reservaHo__IdHot__70DDC3D8">
+          <AssociationSet Name="FK__reservaHo__IdHot__22751F6C" Association="Self.FK__reservaHo__IdHot__22751F6C">
             <End Role="hoteles" EntitySet="hoteles" />
             <End Role="reservaHoteles" EntitySet="reservaHoteles" />
           </AssociationSet>
-          <AssociationSet Name="FK__reservaTo__IdTou__797309D9" Association="Self.FK__reservaTo__IdTou__797309D9">
+          <AssociationSet Name="FK__reservaTo__IdTou__2B0A656D" Association="Self.FK__reservaTo__IdTou__2B0A656D">
             <End Role="tours" EntitySet="tours" />
             <End Role="reservaTours" EntitySet="reservaTours" />
           </AssociationSet>
-          <AssociationSet Name="FK__reservaVu__IdVue__76969D2E" Association="Self.FK__reservaVu__IdVue__76969D2E">
+          <AssociationSet Name="FK__reservaVu__IdVue__282DF8C2" Association="Self.FK__reservaVu__IdVue__282DF8C2">
             <End Role="vuelos" EntitySet="vuelos" />
             <End Role="reservaVuelos" EntitySet="reservaVuelos" />
           </AssociationSet>
-          <AssociationSet Name="FK__tours__IdDestino__6754599E" Association="Self.FK__tours__IdDestino__6754599E">
+          <AssociationSet Name="FK__tours__IdDestino__1EA48E88" Association="Self.FK__tours__IdDestino__1EA48E88">
             <End Role="destino" EntitySet="destino" />
             <End Role="tours" EntitySet="tours" />
           </AssociationSet>
-          <AssociationSet Name="FK__tours__IdEstado__66603565" Association="Self.FK__tours__IdEstado__66603565">
+          <AssociationSet Name="FK__tours__IdEstado__1DB06A4F" Association="Self.FK__tours__IdEstado__1DB06A4F">
             <End Role="estado" EntitySet="estado" />
             <End Role="tours" EntitySet="tours" />
           </AssociationSet>
-          <AssociationSet Name="FK__tours__IdPais__68487DD7" Association="Self.FK__tours__IdPais__68487DD7">
+          <AssociationSet Name="FK__tours__IdPais__1F98B2C1" Association="Self.FK__tours__IdPais__1F98B2C1">
             <End Role="paises" EntitySet="paises" />
             <End Role="tours" EntitySet="tours" />
           </AssociationSet>
-          <AssociationSet Name="FK__usuarios__IdEsta__4AB81AF0" Association="Self.FK__usuarios__IdEsta__4AB81AF0">
+          <AssociationSet Name="FK__usuarios__IdEsta__06CD04F7" Association="Self.FK__usuarios__IdEsta__06CD04F7">
             <End Role="estado" EntitySet="estado" />
             <End Role="usuarios" EntitySet="usuarios" />
           </AssociationSet>
-          <AssociationSet Name="FK__usuarios__IdRol__49C3F6B7" Association="Self.FK__usuarios__IdRol__49C3F6B7">
+          <AssociationSet Name="FK__usuarios__IdRol__05D8E0BE" Association="Self.FK__usuarios__IdRol__05D8E0BE">
             <End Role="rol" EntitySet="rol" />
             <End Role="usuarios" EntitySet="usuarios" />
           </AssociationSet>
-          <AssociationSet Name="FK__vuelos__IdEstado__619B8048" Association="Self.FK__vuelos__IdEstado__619B8048">
+          <AssociationSet Name="FK__vuelos__IdEstado__18EBB532" Association="Self.FK__vuelos__IdEstado__18EBB532">
             <End Role="estado" EntitySet="estado" />
             <End Role="vuelos" EntitySet="vuelos" />
           </AssociationSet>
-          <AssociationSet Name="FK__vuelos__IdPais__628FA481" Association="Self.FK__vuelos__IdPais__628FA481">
+          <AssociationSet Name="FK__vuelos__IdPais__19DFD96B" Association="Self.FK__vuelos__IdPais__19DFD96B">
             <End Role="paises" EntitySet="paises" />
             <End Role="vuelos" EntitySet="vuelos" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ProyectoBDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">

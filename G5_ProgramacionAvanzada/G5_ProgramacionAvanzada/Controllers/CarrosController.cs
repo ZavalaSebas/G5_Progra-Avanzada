@@ -11,17 +11,19 @@ namespace G5_ProgramacionAvanzada.Controllers
     public class CarrosController : Controller
     {
         CarrosModel MC = new CarrosModel();
+        PaisesModel MP = new PaisesModel();
+
 
         //-------------------------------------------------------------------
         [HttpGet]
         public ActionResult AnadirCarro()
         {
-¿            ViewBag.Paises = MC.Paises();
+            ViewBag.Paises = MP.Paises();
             return View();
         }
 
         [HttpPost]
-        public ActionResult AnadirCarro(HotelesEnt entidad)
+        public ActionResult AnadirCarro(CarrosEnt entidad)
         {
             string respuesta = MC.AnadirCarro(entidad);
 
@@ -58,12 +60,5 @@ namespace G5_ProgramacionAvanzada.Controllers
             return View();
         }
        
-        //-------------------------------------------------------------------
-
-        public ActionResult Paises()
-        {
-            var datos = MC.Paises();
-            return View(datos);
-        }
     }
 }

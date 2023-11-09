@@ -169,10 +169,12 @@
     <Compile Include="carros.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\AmenidadesController.cs" />
     <Compile Include="Controllers\CarrosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HotelesController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\PaisController.cs" />
     <Compile Include="destino.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
