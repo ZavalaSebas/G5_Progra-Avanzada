@@ -161,6 +161,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ResenasController.cs" />
     <Compile Include="Controllers\CarrosController.cs" />
     <Compile Include="Controllers\HotelesController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -169,11 +170,13 @@
     <Compile Include="Entities\EstadoEnt.cs" />
     <Compile Include="Entities\HotelesEnt.cs" />
     <Compile Include="Entities\PaisesEnt.cs" />
+    <Compile Include="Entities\ResenasEnt.cs" />
     <Compile Include="Entities\UsuarioEnt.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AmenidadesModel.cs" />
+    <Compile Include="Models\ResenasModel.cs" />
     <Compile Include="Models\CarrosModel.cs" />
     <Compile Include="Models\HotelesModel.cs" />
     <Compile Include="Models\PaisesModel.cs" />
@@ -580,6 +583,8 @@
     <Content Include="Views\Carros\AnadirCarro.cshtml" />
     <Content Include="Views\Carros\ConsultaCarro.cshtml" />
     <Content Include="Views\Carros\EditarCarro.cshtml" />
+    <Content Include="Views\Resenas\AnadirResena.cshtml" />
+    <Content Include="Views\Resenas\ConsultaResenas.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
