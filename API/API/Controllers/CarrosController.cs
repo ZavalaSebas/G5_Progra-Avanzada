@@ -26,7 +26,7 @@ namespace API.Controllers
                     carro.precio = entidad.precio;
                     carro.imagen = entidad.imagen;
                     carro.IdPais = entidad.IdPais;
-                    carro.IdEstado = entidad.IdEstado;
+                    carro.IdEstado = 1;
 
                     context.carros.Add(carro);
                     context.SaveChanges();

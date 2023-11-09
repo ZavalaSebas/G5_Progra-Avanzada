@@ -28,7 +28,7 @@ namespace API.Controllers
                     hotel.imagen = entidad.imagen;
                     hotel.IdAmenidades = entidad.IdAmenidades;
                     hotel.IdPais = entidad.IdPais;
-                    hotel.IdEstado = entidad.IdEstado;
+                    hotel.IdEstado = 1;
 
                     context.hoteles.Add(hotel);
                     context.SaveChanges();

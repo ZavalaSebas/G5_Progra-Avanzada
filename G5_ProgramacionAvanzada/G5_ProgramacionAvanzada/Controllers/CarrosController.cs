@@ -25,6 +25,7 @@ namespace G5_ProgramacionAvanzada.Controllers
         [HttpPost]
         public ActionResult AnadirCarro(CarrosEnt entidad)
         {
+            ViewBag.Paises = MP.Paises();
             string respuesta = MC.AnadirCarro(entidad);
 
             if (respuesta == "ok")
