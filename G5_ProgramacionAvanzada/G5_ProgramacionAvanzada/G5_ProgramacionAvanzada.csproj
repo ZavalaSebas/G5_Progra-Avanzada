@@ -166,6 +166,7 @@
     <Compile Include="Controllers\CarrosController.cs" />
     <Compile Include="Controllers\HotelesController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\ToursController.cs" />
     <Compile Include="Controllers\VuelosController.cs" />
     <Compile Include="Entities\AmenidadesEnt.cs" />
     <Compile Include="Entities\CarrosEnt.cs" />
@@ -596,6 +597,7 @@
     <Content Include="Views\PaginasInfo\PoliticasPrivacidad.cshtml" />
     <Content Include="Views\PaginasInfo\SobreNosotros.cshtml" />
     <Content Include="Views\Tours\ConsultaTours.cshtml" />
+    <Content Include="Views\Tours\AnadirTour.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

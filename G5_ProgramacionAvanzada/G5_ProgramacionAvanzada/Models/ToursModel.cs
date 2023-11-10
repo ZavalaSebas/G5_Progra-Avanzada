@@ -24,5 +24,15 @@ namespace G5_ProgramacionAvanzada.Models
                 return res.Content.ReadFromJsonAsync<string>().Result;
             }
         }
+
+        public List<ToursEnt> ConsultaTours()
+        {
+            using (var client = new HttpClient())
+            {
+                var urlApi = ruta + "ConsultaTours";
+                var res = client.GetAsync(urlApi).Result;
+                return res.Content.ReadFromJsonAsync<List<ToursEnt>>().Result;
+            }
+        }
     }
 }

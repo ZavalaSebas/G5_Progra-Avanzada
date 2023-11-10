@@ -41,11 +41,37 @@ namespace API.Controllers
 
         [HttpGet]
         [Route("ConsultaTours")]
-        public List<tours> ConsultaTours()
+        public IHttpActionResult ConsultaTours()
         {
-            using (var context = new ProyectoBDEntities())
+            try
             {
-                return context.tours.ToList();
+                using (var context = new ProyectoBDEntities())
+                {
+                    context.Configuration.LazyLoadingEnabled = false;
+
+                    var datos = (from tour in context.tours
+                                 join estado in context.estado on tour.IdEstado equals estado.ID
+                                 join pais in context.paises on tour.IdPais equals pais.ID
+                                 join destino in context.destino on tour.IdDestino equals destino.ID
+                                 select new ToursEnt
+                                 {
+                                     
+                                     nombre = tour.nombre,
+                                     descripcion = tour.descripcion,
+                                     precio = (decimal)tour.precio,
+                                     imagen = tour.imagen,
+                                     IdEstado = estado.ID,
+                                     IdPais = pais.ID,
+                                     IdDestino = destino.ID
+                                 }).ToList();
+
+                    return Ok(datos);
+                }
+            }
+            catch (Exception)
+            {
+                // Manejo de errores
+                return InternalServerError();
             }
         }
     }

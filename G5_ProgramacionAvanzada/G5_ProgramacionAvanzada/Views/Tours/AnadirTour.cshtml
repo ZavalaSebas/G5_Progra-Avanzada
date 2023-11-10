@@ -9,10 +9,10 @@
         <div class="row align-items-center">
             <div class="col-lg-12">
                 <div class="common_bannner_text">
-                    <h2>Tours</h2>
+                    <h2>Vehículos</h2>
                     <ul>
                         <li><a href="@Url.Action("Index","Login")">Index</a></li>
-                        <li><span><i class="fas fa-circle"></i></span>Tours</li>
+                        <li><span><i class="fas fa-circle"></i></span> Vehículos</li>
                     </ul>
                 </div>
             </div>
@@ -77,33 +77,51 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="cruise_search_result_wrapper">
-                           
+                            @foreach (var item in Model)
+                            {
                                 <div class="cruise_search_item">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Nombre</th>
-                                                <th>Descripción</th>
-                                                <th>Imagen</th>
-                                                <!-- Agrega aquí más columnas según las propiedades de ToursEnt -->
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach (var tour in Model)
-                                            {
-                                                <tr>
-                                                    <td>@tour.ID</td>
-                                                    <td>@tour.nombre</td>
-                                                    <td>@tour.descripcion</td>
-                                                    <td><img src="@tour.imagen" alt="Imagen del Tour" style="width: 50px; height: 50px;" /></td>
-                                                    <!-- Agrega aquí más celdas según las propiedades de ToursEnt -->
-                                                </tr>
-                                            }
-                                        </tbody>
-                                    </table>
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <div class="cruise_item_img">
+                                                <img src="assets/img/cruise/cruise-2.png" alt="img">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <div class="cruise_item_inner_content">
+                                                <div class="cruise_content_top_wrapper">
+                                                    <div class="cruise_content_top_left">
+                                                        <ul>
+                                                            <li>Kilometros ilimitados <i class="fas fa-circle"></i></li>
+                                                            <li>5 Asientos</li>
+                                                        </ul>
+                                                        <h4>@item.marca</h4>
+                                                        <p><i class="fas fa-map-marker-alt"></i> @item.IdPais</p>
+                                                    </div>
+                                                    <div class="cruise_content_top_right">
+                                                        <h5> @item.modelo</h5>
+                                                        <h4>Modelo @item.annio</h4>
+                                                    </div>
+                                                </div>
+                                                <div class="cruise_content_middel_wrapper">
+                                                    <div class="cruise_content_middel_left">
+                                                        <h5>Cancelación gratuita</h5>
+                                                        <p>Cancele su reserva cuando desee</p>
+                                                    </div>
+                                                    <div class="cruise_content_middel_right">
+                                                        <h3>@item.precio<sub>/Por día</sub></h3>
+                                                        <p>Esto no incluye los gastos de seguros e impuestos </p>
+                                                    </div>
+                                                </div>
+                                                <div class="cruise_content_bottom_wrapper">
+                                                    <div class="cruise_content_bottom_right">
+                                                        <a href="@Url.Action("DetalleCarro", "Carros")" class="btn btn_theme btn_md">View details</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            
+                            }
                         </div>
                     </div>
                 </div>
